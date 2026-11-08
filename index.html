@@ -65,11 +65,52 @@ body.onboarding-open{overflow:hidden}
 @media(max-width:680px){#onboarding{padding:0}.onboard-shell{width:100%;height:100dvh;max-height:100dvh;border-radius:0;display:flex;flex-direction:column}.onboard-aside{min-height:68px;padding:15px 20px;flex:none;display:flex;align-items:center;justify-content:flex-start}.onboard-logo{font-size:17px}.onboard-logo>span{width:31px;height:31px;font-size:18px}.onboard-aside .onboard-label,.onboard-aside h2,.onboard-aside p,.onboard-map,.onboard-asidefooter{display:none}.onboard-main{padding:20px 21px 24px;flex:1;overflow-y:auto}.onboard-progress{margin:14px 0 27px}.onboard-body{min-height:0}.onboard-body h1{font-size:25px}.onboard-choices.role-options{grid-template-columns:1fr}.onboard-option{min-height:82px;padding:12px}.onboard-bottom{margin-top:15px}.onboard-sectorgrid{gap:8px}.onboard-sectorgrid .onboard-option{min-height:72px}.setup-context{flex-direction:column;align-items:flex-start}.topright .edit-setup{display:none}}
 @media(max-width:380px){.onboard-choices{grid-template-columns:1fr}.onboard-sectorgrid{grid-template-columns:1fr}}
 
-</style></head><body><div class="app"><aside class="sidebar" id="sidebar"><div class="brand"><div class="logo">↗</div><div>TripBridge<small>GERMANY ↔ INDONESIA</small></div></div><div class="nav-label">WORKSPACE</div><button class="nav active" data-page="dashboard">◫ &nbsp; Overview</button><button class="nav" data-page="market">◈ &nbsp; Market intelligence</button><button class="nav" data-page="trade">▤ &nbsp; CEPA & compliance</button><button class="nav" data-page="partners">◎ &nbsp; Find partners</button><button class="nav" data-page="meetings">▦ &nbsp; Meetings</button><button class="nav" data-page="itinerary">⌁ &nbsp; Business trip planner</button><div class="nav-label">PREPARATION</div><button class="nav" data-page="readiness">✓ &nbsp; Investment readiness</button><button class="nav" data-page="culture">◇ &nbsp; Cultural intelligence</button><button class="nav" data-page="tourism">☼ &nbsp; Local experiences</button><button class="setup-link" onclick="openOnboarding(true)" aria-label="Edit onboarding preferences">⚙ &nbsp; Edit my setup ↗</button><div class="sidebottom">● Demo workspace<br>Interactive concept prototype<br><span style="color:#7dd3c7">Prepared connections. Better business.</span></div></aside><div class="main"><header class="topbar"><div style="display:flex;align-items:center;gap:12px"><button class="pill mobilemenu" id="mobilemenu">☰</button><div><div class="crumb">Workspace / <span id="crumb">Overview</span></div><strong id="topTitle">Business dashboard</strong></div></div><div class="topright"><select id="role" class="pill" aria-label="Switch role"><option value="german">🇩🇪 German SME / Investor</option><option value="indonesian">🇮🇩 Indonesian SME</option></select><button class="pill edit-setup" onclick="openOnboarding(true)" title="Edit workspace preferences">Edit setup</button><div class="avatar">TB</div></div></header><main class="content">
+/* Company profile detail */
+.companycard{cursor:pointer;transition:border-color .15s,transform .15s,box-shadow .15s}
+.companycard:hover{border-color:#75bfb8;transform:translateY(-2px);box-shadow:0 10px 28px #1d304512}
+.companycard .bottom{cursor:default}
+.cp-back{border:0;background:transparent;color:#668397;font-weight:750;padding:0 0 18px;display:inline-flex;align-items:center;gap:8px}
+.cp-back:hover{color:var(--teal)}
+.cp-header{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
+.cp-identity{display:flex;gap:16px;align-items:flex-start;min-width:0}
+.cp-logo{width:64px;height:64px;border-radius:16px;background:linear-gradient(145deg,#dff3ef,#e8f1f8);color:#0a756e;display:grid;place-items:center;font-weight:850;font-size:22px;flex-shrink:0;border:1px solid #d7e8e4}
+.cp-identity h1{margin:0 0 4px;font-size:28px;letter-spacing:-.7px;line-height:1.15}
+.cp-meta{color:var(--muted);font-size:13px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cp-flag{font-size:14px}
+.cp-actions{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+.cp-lead{color:#5f7386;max-width:760px;margin:0 0 18px;line-height:1.65}
+.cp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.cp-stat .stat-value{font-size:24px}
+.cp-chart{padding:22px 22px 14px;margin-bottom:16px}
+.cp-chart-top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:8px}
+.cp-chart-metric{font-size:34px;font-weight:850;letter-spacing:-1px;margin:4px 0}
+.cp-delta{display:inline-flex;align-items:center;gap:4px;background:#e7f7f1;color:#08766d;border-radius:20px;padding:4px 10px;font-size:12px;font-weight:750;margin-left:10px}
+.cp-chart-controls{display:flex;gap:8px;flex-wrap:wrap}
+.cp-chart-svg{width:100%;height:210px;display:block;margin-top:8px}
+.cp-chart-foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:11px;color:var(--muted)}
+.cp-insights-title{margin:22px 0 12px;font-size:18px;letter-spacing:-.3px}
+.cp-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.cp-grid .card h3{margin:0 0 10px;font-size:12px;letter-spacing:1.1px;color:#6d8194;display:flex;align-items:center;gap:8px}
+.cp-grid .card p{margin:0;color:#4d6174;font-size:13px;line-height:1.6}
+.cp-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.cp-pill{border:1px solid #dbe5eb;background:#f7fafb;border-radius:20px;padding:5px 10px;font-size:11px;font-weight:700;color:#345066}
+.cp-stack{display:grid;gap:10px}
+.cp-stack small{display:block;color:var(--muted);font-size:11px;margin-bottom:6px;font-weight:700;letter-spacing:.4px}
+@media(max-width:1050px){.cp-stats{grid-template-columns:repeat(2,1fr)}.cp-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.cp-header{flex-direction:column}.cp-identity h1{font-size:24px}.cp-chart-metric{font-size:28px}.cp-logo{width:54px;height:54px;font-size:18px}}
+
+/* Language switcher */
+.lang-switch{display:inline-flex;align-items:center;gap:2px;background:#12324b;border-radius:40px;padding:3px;border:1px solid #2a4d66}
+.lang-btn{border:0;background:transparent;color:#d7e8ef;font-weight:800;font-size:11px;letter-spacing:.4px;padding:7px 11px;border-radius:40px;min-width:38px}
+.lang-btn.active{background:#fff;color:#0a5f5a}
+.lang-btn:hover:not(.active){color:#fff}
+
+</style></head><body><div class="app"><aside class="sidebar" id="sidebar"><div class="brand"><div class="logo">↗</div><div>TripBridge<small>GERMANY ↔ INDONESIA</small></div></div><div class="nav-label">WORKSPACE</div><button class="nav active" data-page="dashboard">◫ &nbsp; Overview</button><button class="nav" data-page="market">◈ &nbsp; Market intelligence</button><button class="nav" data-page="trade">▤ &nbsp; CEPA & compliance</button><button class="nav" data-page="partners">◎ &nbsp; Find partners</button><button class="nav" data-page="meetings">▦ &nbsp; Meetings</button><button class="nav" data-page="itinerary">⌁ &nbsp; Business trip planner</button><div class="nav-label">PREPARATION</div><button class="nav" data-page="readiness">✓ &nbsp; Investment readiness</button><button class="nav" data-page="culture">◇ &nbsp; Cultural intelligence</button><button class="nav" data-page="tourism">☼ &nbsp; Local experiences</button><button class="setup-link" onclick="openOnboarding(true)" aria-label="Edit onboarding preferences">⚙ &nbsp; Edit my setup ↗</button><div class="sidebottom">● Demo workspace<br>Interactive concept prototype<br><span style="color:#7dd3c7">Prepared connections. Better business.</span></div></aside><div class="main"><header class="topbar"><div style="display:flex;align-items:center;gap:12px"><button class="pill mobilemenu" id="mobilemenu">☰</button><div><div class="crumb">Workspace / <span id="crumb">Overview</span></div><strong id="topTitle">Business dashboard</strong></div></div><div class="topright"><div class="lang-switch" role="group" aria-label="Language"><button type="button" class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button type="button" class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button><button type="button" class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button></div><select id="role" class="pill" aria-label="Switch role"><option value="german">🇩🇪 German SME / Investor</option><option value="indonesian">🇮🇩 Indonesian SME</option></select><button class="pill edit-setup" onclick="openOnboarding(true)" title="Edit workspace preferences">Edit setup</button><div class="avatar">TB</div></div></header><main class="content">
 <section class="page active" id="dashboard"><div class="hero"><div><div class="eyebrow">YOUR CROSS-BORDER BUSINESS WORKSPACE</div><h1 id="heroTitle">Your next partnership starts before the trip.</h1><p id="heroDesc">Discover promising Indonesian partners, understand trade requirements and schedule productive meetings — all in one place.</p><button class="btn secondary" onclick="go('partners')">Explore business partners →</button></div></div><div id="setupContext" class="setup-context" style="display:none"></div><div class="stats"><div class="card"><div class="stat-label">Demo partner profiles</div><div class="stat-value" id="countProfiles">6</div><div class="stat-note">Sample directory</div></div><div class="card"><div class="stat-label">Saved partners</div><div class="stat-value" id="countSaved">0</div><div class="stat-note">Your shortlist</div></div><div class="card"><div class="stat-label">Meeting requests</div><div class="stat-value" id="countMeetings">0</div><div class="stat-note">Stored in this browser</div></div><div class="card"><div class="stat-label">Preparation completed</div><div class="stat-value" id="countReady">0%</div><div class="stat-note">Readiness checklist</div></div></div><div class="sectiontitle"><h2>Your business journey</h2><span class="section-sub">Five steps to productive collaboration</span></div><div class="steps"><div class="step" onclick="go('market')"><div class="circle">1</div><strong>Discover</strong><small>Explore markets</small></div><div class="step" onclick="go('trade')"><div class="circle">2</div><strong>Prepare</strong><small>Trade & compliance</small></div><div class="step" onclick="go('partners')"><div class="circle">3</div><strong>Match</strong><small>Find & meet partners</small></div><div class="step" onclick="go('itinerary')"><div class="circle">4</div><strong>Visit</strong><small>Plan your agenda</small></div><div class="step" onclick="go('meetings')"><div class="circle">5</div><strong>Follow up</strong><small>Track next steps</small></div></div><div class="grid2" style="margin-top:20px"><div class="card"><div class="split"><h3 style="margin:0">Suggested business partners</h3><button class="btn small outline" onclick="go('partners')">View all</button></div><div id="suggested"></div></div><div class="card"><h3 style="margin:0 0 10px">Preparation checklist</h3><p class="muted" style="font-size:12px">Get ready for a meaningful first meeting.</p><div id="dashchecks"></div><button class="btn small outline" style="margin-top:15px" onclick="go('readiness')">Open full checklist →</button></div></div></section>
 <section class="page" id="market"><div class="pagehead"><h1>Market intelligence</h1><p>Explore sector opportunities and key questions before entering a new market.</p></div><div class="notice">Illustrative sector signals only — not verified market statistics or investment advice. Connect official datasets before production use.</div><div class="toolbar"><select class="field" id="marketSector"><option>Machinery & manufacturing</option><option>Food technology</option><option>Renewable energy</option><option>Packaging</option></select><select class="field" id="marketDirection"><option>Germany → Indonesia</option><option>Indonesia → Germany</option></select></div><div class="grid2"><div class="card"><div class="split"><h3 id="sectorTitle">Machinery & manufacturing</h3><span class="badge">Research starter</span></div><p id="sectorText" class="muted"></p><h4>Research priorities</h4><div id="sectorPriorities"></div></div><div class="card"><h3>Opportunity assessment</h3><p class="muted">A qualitative planning aid, not a measured market score.</p><div id="marketBars"></div></div></div><div class="sectiontitle"><h2>Trusted sources to validate</h2></div><div class="feature-grid"><div class="feature"><h3>European Commission</h3><p>Agreement texts, tariff schedules and implementation updates.</p><a href="https://policy.trade.ec.europa.eu/" target="_blank" rel="noopener">Open trade policy portal ↗</a></div><div class="feature"><h3>Eurostat</h3><p>EU trade statistics by product and partner country.</p><a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener">Open Eurostat ↗</a></div><div class="feature"><h3>Indonesia BPS</h3><p>Indonesian official economic and industry statistics.</p><a href="https://www.bps.go.id/" target="_blank" rel="noopener">Open BPS ↗</a></div></div></section>
 <section class="page" id="trade"><div class="pagehead"><h1>CEPA & compliance guide</h1><p>Prepare your trade questions, documentation and risk review.</p></div><div class="notice"><strong>Agreement status and tariffs must be checked.</strong> This demo does not determine whether IEU–CEPA is legally in force, whether a product qualifies for preferences, or what duty applies. Verify current rules with official authorities.</div><div class="grid2"><div class="card"><h3>Trade readiness checklist</h3><div id="tradechecks"></div></div><div class="card"><h3>Tariff research assistant</h3><div class="formgroup"><label>Product description</label><input id="productName" placeholder="e.g. industrial packaging machine"></div><div class="formgroup"><label>Direction</label><select id="tradeDirection"><option>Export Germany → Indonesia</option><option>Export Indonesia → Germany</option></select></div><button class="btn" onclick="tradeResult()">Generate research checklist</button><div id="tradeResult"></div></div></div><div class="sectiontitle"><h2>Important official resources</h2></div><div class="feature-grid"><div class="feature"><h3>EU Access2Markets</h3><p>Look up product-specific duties, rules of origin and requirements.</p><a href="https://trade.ec.europa.eu/access-to-markets/en/home" target="_blank" rel="noopener">Access2Markets ↗</a></div><div class="feature"><h3>European Commission</h3><p>Confirm IEU–CEPA progress and applicable legal texts.</p><a href="https://policy.trade.ec.europa.eu/" target="_blank" rel="noopener">Trade agreements ↗</a></div><div class="feature"><h3>Indonesia customs</h3><p>Review national import and customs procedures.</p><a href="https://www.beacukai.go.id/" target="_blank" rel="noopener">Customs portal ↗</a></div></div></section>
-<section class="page" id="partners"><div class="pagehead"><h1>Find your next business partner</h1><p>Discover illustrative SME profiles and create a shortlist before scheduling meetings.</p></div><div class="toolbar"><input id="partnerSearch" class="field search" placeholder="Search companies, sectors or cities..."><select id="partnerSector" class="field"><option value="all">All sectors</option><option>Machinery</option><option>Food technology</option><option>Renewable energy</option><option>Packaging</option></select><select id="partnerCity" class="field"><option value="all">All cities</option><option>Jakarta</option><option>Bandung</option><option>Surabaya</option><option>Hamburg</option><option>Munich</option></select></div><div class="notice">All company profiles in this POC are fictional examples, not real verified businesses.</div><div id="companyGrid" class="companies"></div></section>
+<section class="page" id="partners"><div class="toolbar"><select id="partnerSector" class="field"><option value="all">All sectors</option><option>Machinery</option><option>Food technology</option><option>Renewable energy</option><option>Packaging</option></select><select id="partnerCity" class="field"><option value="all">All cities</option><option>Jakarta</option><option>Bandung</option><option>Surabaya</option><option>Hamburg</option><option>Munich</option></select></div><div class="notice">All company profiles in this POC are fictional examples, not real verified businesses.</div><div id="companyGrid" class="companies"></div></section>
+<section class="page" id="company"><div id="companyProfile"></div></section>
 <section class="page" id="meetings"><div class="pagehead"><h1>Meeting management</h1><p>Coordinate appointments and capture follow-up actions.</p></div><div class="grid2"><div class="card"><div class="split"><h3 style="margin:0">Your meeting requests</h3><button class="btn small" onclick="go('partners')">+ Find partners</button></div><div id="meetingList"></div></div><div class="card"><h3>Why preparation matters</h3><p class="muted">A productive meeting has a clear objective, relevant documents and defined next steps.</p><div class="insight"><strong>Before the meeting</strong><br>Share an agenda, confirm attendees and prepare your questions.</div><div class="insight"><strong>After the meeting</strong><br>Record decisions, responsible contacts and the next milestone.</div></div></div></section>
 <section class="page" id="itinerary"><div class="pagehead"><h1>Business trip planner</h1><p>Build a practical agenda around your requested company meetings.</p></div><div class="grid2"><div class="card"><h3>Generate a visit agenda</h3><div class="formrow"><div class="formgroup"><label>Destination</label><select id="tripCity"><option>Jakarta</option><option>Bandung</option><option>Surabaya</option></select></div><div class="formgroup"><label>Start date</label><input type="date" id="tripDate"></div></div><div class="formgroup"><label>Business days</label><select id="tripDays"><option value="2">2 days</option><option value="3">3 days</option><option value="4">4 days</option></select></div><button class="btn" onclick="makeTrip()">Generate sample agenda</button><div class="notice">Hotel and transport suggestions are planning prompts, not live bookings, routing or travel-time estimates.</div></div><div class="card"><h3>Your agenda</h3><div id="tripOutput" class="empty">Choose a date and generate your agenda. Requested meetings will appear as planning placeholders.</div></div></div></section>
 <section class="page" id="readiness"><div class="pagehead"><h1 id="readinessTitle">Investment readiness</h1><p id="readinessDesc">Prepare the right information before your first international meeting.</p></div><div class="grid2"><div class="card"><div class="split"><h3>Readiness progress</h3><strong id="readyPercent">0%</strong></div><div class="progress"><div id="readyBar" style="width:0%"></div></div><div id="readychecks" style="margin-top:12px"></div></div><div class="card"><h3>Company pitch builder</h3><div class="formgroup"><label>Company name</label><input id="pitchName" placeholder="Your company"></div><div class="formgroup"><label>What does your company offer?</label><textarea id="pitchOffer" placeholder="Products, services and your competitive advantage"></textarea></div><div class="formgroup"><label>What partnership are you looking for?</label><textarea id="pitchAsk" placeholder="Distribution, investment, suppliers, joint venture..."></textarea></div><button class="btn" onclick="makePitch()">Generate pitch outline</button><div id="pitchOutput"></div></div></div></section>
@@ -112,46 +153,223 @@ body.onboarding-open{overflow:hidden}
   </div>
 </div>
 
+<script src="i18n.js"></script>
 <script>
-const companies=[{id:1,name:'Nusantara Precision Works',city:'Jakarta',country:'Indonesia',sector:'Machinery',type:'Manufacturing partner',desc:'Precision components and industrial fabrication for regional supply chains.',initials:'NP'},{id:2,name:'Bandung GreenTech',city:'Bandung',country:'Indonesia',sector:'Renewable energy',type:'Technology partner',desc:'Industrial energy monitoring and renewable integration concepts.',initials:'BG'},{id:3,name:'Surya Food Systems',city:'Surabaya',country:'Indonesia',sector:'Food technology',type:'Distribution partner',desc:'Food processing equipment and regional distribution services.',initials:'SF'},{id:4,name:'Jakarta Pack Solutions',city:'Jakarta',country:'Indonesia',sector:'Packaging',type:'Supplier',desc:'Industrial packaging and sustainable material solutions.',initials:'JP'},{id:5,name:'Elbe Industrial Systems',city:'Hamburg',country:'Germany',sector:'Machinery',type:'Technology supplier',desc:'Industrial automation systems seeking international channel partners.',initials:'EI'},{id:6,name:'Bavaria Clean Process',city:'Munich',country:'Germany',sector:'Renewable energy',type:'Technology partner',desc:'Energy-efficient process equipment and engineering services.',initials:'BC'}];
-const checklist=['Company profile and value proposition','Product or service specifications','Financial and commercial overview','Certifications and relevant documents','Target partner criteria','Meeting agenda and key questions'];const tradeChecklist=['Identify HS product classification','Check current tariff and CEPA legal status','Review rules of origin and evidence','Check import licenses and product standards','Verify taxes, customs and logistics','Screen counterparties and contract risks'];const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));let state;try{state=JSON.parse(localStorage.getItem('tripbridge-poc-v1'))||{}}catch(e){state={}}state={saved:[],meetings:[],checks:[],tradechecks:[],role:'german',...state};const persist=()=>localStorage.setItem('tripbridge-poc-v1',JSON.stringify(state));const byId=id=>document.getElementById(id);function toast(s){let el=byId('toast');el.textContent=s;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',3200)}
-const titles={dashboard:'Business dashboard',market:'Market intelligence',trade:'CEPA & compliance',partners:'Find partners',meetings:'Meetings',itinerary:'Trip planner',readiness:'Investment readiness',culture:'Cultural intelligence',tourism:'Local experiences'};function go(p){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===p));byId('crumb').textContent=titles[p];byId('topTitle').textContent=titles[p];byId('sidebar').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});render()};document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>go(b.dataset.page));byId('mobilemenu').onclick=()=>byId('sidebar').classList.toggle('open');byId('role').value=state.role;byId('role').onchange=e=>{state.role=e.target.value;state.profile={...(state.profile||{}),role:state.role,goal:null,targetCity:'all'};persist();syncOnboardingPreferences();render();toast('Workspace role switched')};
-function render(){const ind=state.role==='indonesian';byId('heroTitle').textContent=ind?'Get your company ready for global partnerships.':'Your next partnership starts before the trip.';byId('heroDesc').textContent=ind?'Create a compelling company profile, prepare your pitch and connect with potential German partners.':'Discover promising Indonesian partners, understand trade requirements and schedule productive meetings — all in one place.';byId('countSaved').textContent=state.saved.length;byId('countMeetings').textContent=state.meetings.length;byId('countReady').textContent=Math.round(state.checks.length/checklist.length*100)+'%';byId('readinessTitle').textContent=ind?'International partnership readiness':'Investment readiness';byId('readinessDesc').textContent=ind?'Prepare a strong profile and pitch for international business partners.':'Prepare the right information before your first international meeting.';let rec=companies.filter(c=>c.country===(ind?'Germany':'Indonesia')).sort((a,b)=>Number(b.sector===(state.profile?.sector||''))-Number(a.sector===(state.profile?.sector||''))||Number(b.city===(state.profile?.targetCity||''))-Number(a.city===(state.profile?.targetCity||''))).slice(0,3);byId('suggested').innerHTML=rec.map(c=>`<div class="company"><div class="company-logo">${c.initials}</div><div class="info"><strong>${c.name}</strong><small>${c.sector} · ${c.city}</small></div><button class="btn small outline" onclick="go('partners')">Explore</button></div>`).join('');byId('dashchecks').innerHTML=checklist.slice(0,4).map((c,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${c}</span></label>`).join('');renderChecks();renderPartners();renderMeetings();renderMarket()}
-function toggleCheck(i,v,trade=false){let key=trade?'tradechecks':'checks';state[key]=v?[...new Set([...state[key],i])]:state[key].filter(x=>x!==i);persist();render()}function renderChecks(){let p=Math.round(state.checks.length/checklist.length*100);byId('readyPercent').textContent=p+'%';byId('readyBar').style.width=p+'%';byId('readychecks').innerHTML=checklist.map((c,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${c}</span></label>`).join('');byId('tradechecks').innerHTML=tradeChecklist.map((c,i)=>`<label class="check"><input type="checkbox" ${state.tradechecks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked,true)"><span>${c}</span></label>`).join('')}
-function renderPartners(){let term=byId('partnerSearch').value.toLowerCase(),sec=byId('partnerSector').value,city=byId('partnerCity').value;let rows=companies.filter(c=>c.country===(state.role==='indonesian'?'Germany':'Indonesia')&&(c.name+' '+c.city+' '+c.sector+' '+c.desc).toLowerCase().includes(term)&&(sec==='all'||c.sector===sec)&&(city==='all'||c.city===city));byId('companyGrid').innerHTML=rows.length?rows.map(c=>`<div class="card companycard"><div class="company"><div class="company-logo">${c.initials}</div><div class="info"><strong>${c.name}</strong><small>${c.city}, ${c.country}</small></div></div><span class="tag">${c.sector}</span><p>${c.desc}</p><div class="metricrow"><span>Partner type<br><b>${c.type}</b></span><span>Profile<br><b>Demo only</b></span></div><div class="bottom"><button class="btn small outline" onclick="toggleSave(${c.id})">${state.saved.includes(c.id)?'★ Saved':'☆ Save partner'}</button><button class="btn small" onclick="openMeeting(${c.id})">Request meeting →</button></div></div>`).join(''):'<div class="empty">No matching demo profiles.</div>'}['partnerSearch','partnerSector','partnerCity'].forEach(id=>byId(id).addEventListener('input',renderPartners));function toggleSave(id){state.saved=state.saved.includes(id)?state.saved.filter(x=>x!==id):[...state.saved,id];persist();render();toast(state.saved.includes(id)?'Added to shortlist':'Removed from shortlist')}
-let meetingCompany=null;function openMeeting(id){meetingCompany=id;let c=companies.find(x=>x.id===id);byId('modalCompany').textContent=c.name+' · '+c.city;byId('meetingDate').min=new Date().toISOString().slice(0,10);byId('meetingDate').value='';byId('meetingObjective').value='';byId('modalback').classList.add('show')}function closeModal(){byId('modalback').classList.remove('show')}byId('modalback').onclick=e=>{if(e.target===byId('modalback'))closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});function submitMeeting(){let date=byId('meetingDate').value;if(!date||date<new Date().toISOString().slice(0,10)){toast('Please choose a future meeting date');return}let obj=byId('meetingObjective').value.trim();if(!obj){toast('Please enter a meeting objective');return}state.meetings.push({id:Date.now(),companyId:meetingCompany,date,time:byId('meetingTime').value,objective:obj,status:'Requested',notes:''});persist();closeModal();go('meetings');toast('Demo meeting request saved locally')}
-function renderMeetings(){byId('meetingList').innerHTML=state.meetings.length?state.meetings.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(m=>{let c=companies.find(x=>x.id===m.companyId);return `<div class="listrow"><div><strong>${safe(c?.name||'Company')}</strong><small>${safe(m.date)} at ${safe(m.time)} · ${safe(c?.city||'')}</small><div style="font-size:12px;margin-top:5px">${safe(m.objective)}</div><span class="tag amber">${safe(m.status)}</span>${m.notes?`<p style="font-size:12px">Follow-up: ${safe(m.notes)}</p>`:''}</div><div style="display:grid;gap:7px"><button class="btn small outline" onclick="addNote(${m.id})">Follow up</button><button class="btn small outline" onclick="deleteMeeting(${m.id})">Remove</button></div></div>`}).join(''):'<div class="empty">No meetings requested yet. Explore partner profiles to get started.</div>'}function addNote(id){let m=state.meetings.find(x=>x.id===id);let note=prompt('Follow-up notes / next steps:',m.notes||'');if(note!==null){m.notes=note.slice(0,2000);persist();renderMeetings();toast('Follow-up saved')}}function deleteMeeting(id){if(confirm('Remove this demo meeting request?')){state.meetings=state.meetings.filter(m=>m.id!==id);persist();render()}}
-const sectors={'Machinery & manufacturing':{desc:'Research industrial equipment demand, distributor networks, technical standards and after-sales service requirements.',tasks:['Identify importers and distribution channels','Compare local competitors and service models','Validate product certification and spare-parts logistics'],bars:[72,55,82]},'Food technology':{desc:'Explore processing equipment, food safety requirements and potential partners in distribution and production.',tasks:['Investigate food safety and labeling rules','Map processing and cold-chain infrastructure','Validate sector demand using official data'],bars:[65,75,61]},'Renewable energy':{desc:'Assess energy projects, procurement pathways, financing models and the regulatory environment.',tasks:['Review project procurement requirements','Understand energy sector permitting','Identify suitable EPC and technology partners'],bars:[79,48,72]},'Packaging':{desc:'Examine packaging manufacturers, material requirements and sustainability expectations.',tasks:['Compare packaging standards','Review waste and circularity regulations','Find industrial customers and suppliers'],bars:[68,67,74]}};function renderMarket(){let sector=byId('marketSector').value,d=sectors[sector];byId('sectorTitle').textContent=sector;byId('sectorText').textContent=d.desc;byId('sectorPriorities').innerHTML=d.tasks.map(t=>`<div class="check">✓ &nbsp; ${t}</div>`).join('');byId('marketBars').innerHTML=['Research breadth','Partner discovery potential','Compliance research effort'].map((t,i)=>`<div class="split"><span>${t}</span><small class="muted">Illustrative</small></div><div class="bar"><span style="width:${d.bars[i]}%"></span></div>`).join('')}byId('marketSector').onchange=renderMarket;byId('marketDirection').onchange=()=>toast('Market research direction updated');function tradeResult(){let name=byId('productName').value.trim();if(!name){toast('Enter a product description first');return}byId('tradeResult').innerHTML=`<div class="insight"><strong>Research plan for: ${safe(name)}</strong><p>1. Confirm the HS classification with customs specialists.<br>2. Search the official tariff database for the selected trade direction.<br>3. Check agreement status, origin eligibility and product-specific requirements.<br>4. Validate duties, taxes and documentation before quoting.</p><small>No tariff or CEPA preference has been calculated.</small></div>`}
-function makeTrip(){let date=byId('tripDate').value;if(!date){toast('Choose a start date');return}let days=Number(byId('tripDays').value),city=byId('tripCity').value;let ms=state.meetings.filter(m=>companies.find(c=>c.id===m.companyId)?.city===city);let html='';for(let i=0;i<days;i++){let d=new Date(date+'T12:00:00');d.setDate(d.getDate()+i);let day=d.toISOString().slice(0,10);let matches=ms.filter(m=>m.date===day);html+=`<h4>Day ${i+1} · ${day}</h4><div class="timeline"><div class="event"><small>09:00</small><strong>Review objectives and briefing</strong><small>Prepare documents and meeting questions</small></div>${matches.map(m=>`<div class="event"><small>${safe(m.time)}</small><strong>${safe(companies.find(c=>c.id===m.companyId)?.name)}</strong><small>Requested — not confirmed · ${safe(m.objective)}</small></div>`).join('')}${matches.length?'':'<div class="event"><small>To be arranged</small><strong>Partner meeting slots</strong><small>Request meetings in Find partners</small></div>'}<div class="event"><small>After meetings</small><strong>Document decisions & follow up</strong><small>Confirm next steps with counterparts</small></div></div>`}byId('tripOutput').innerHTML=html+'<div class="notice">Allow buffer time for travel. Actual locations, route times and hotels must be verified.</div>'}
-function makePitch(){let name=byId('pitchName').value.trim(),offer=byId('pitchOffer').value.trim(),ask=byId('pitchAsk').value.trim();if(!name||!offer||!ask){toast('Complete all three pitch fields');return}let outline=`${name}\n\nWhat we offer:\n${offer}\n\nPartnership sought:\n${ask}\n\nSupporting materials to attach:\n• Product/service portfolio\n• Evidence of capacity and experience\n• Certifications and financial details (as appropriate)\n• Contact person and proposed next steps`;byId('pitchOutput').innerHTML=`<div class="insight"><strong>Pitch outline</strong><pre style="white-space:pre-wrap;font:inherit">${safe(outline)}</pre><button class="btn small outline" id="copyPitch">Copy outline</button></div>`;byId('copyPitch').onclick=()=>{navigator.clipboard?.writeText(outline).then(()=>toast('Pitch copied')).catch(()=>toast('Clipboard unavailable; select text manually'))}}
+const companies=[
+{id:1,name:'Nusantara Precision Works',city:'Jakarta',country:'Indonesia',sector:'Machinery',type:'Manufacturing partner',desc:'Precision components and industrial fabrication for regional supply chains.',initials:'NP',founded:2012,employees:'85–120',languages:['Bahasa Indonesia','English'],exportYears:7,readiness:78,cepaFocus:'Rules of origin & EU technical standards',lookingFor:'German OEM or distributor for precision metal parts',valueProp:'CNC and fabrication capacity for mid-volume industrial components with documented quality checks.',problem:'European buyers need reliable ASEAN suppliers that can meet dimensional tolerances and delivery discipline.',audience:'Machine builders, industrial importers and maintenance contractors',markets:['ASEAN','Middle East','Exploring EU'],channels:['Trade fairs','Direct B2B','AHK referrals'],certs:['ISO 9001','SNI process docs','Material traceability'],capacity:'2 production lines · prototype to series','response':'2–4 business days',activity:[42,48,45,55,61,58,66,72,69,74,78,81],activityLabel:'Export enquiry index',activityDelta:'+18%'},
+{id:2,name:'Bandung GreenTech',city:'Bandung',country:'Indonesia',sector:'Renewable energy',type:'Technology partner',desc:'Industrial energy monitoring and renewable integration concepts.',initials:'BG',founded:2016,employees:'25–40',languages:['Bahasa Indonesia','English'],exportYears:3,readiness:71,cepaFocus:'Sustainability disclosures & project procurement',lookingFor:'German technology partners for industrial energy efficiency pilots',valueProp:'Monitoring software and retrofit concepts that cut industrial energy waste in factories.',problem:'Indonesian manufacturers need measurable energy savings before large CAPEX commitments.',audience:'Factory operators, EPC contractors and sustainability officers',markets:['Java','Sumatra','Pilot ASEAN'],channels:['Pilot projects','LinkedIn','Industry associations'],certs:['ISO 14001 (in progress)','Project case studies'],capacity:'Pilot deployments · remote monitoring','response':'1–3 business days',activity:[30,34,38,36,44,49,52,55,60,58,65,70],activityLabel:'Partner interest score',activityDelta:'+22%'},
+{id:3,name:'Surya Food Systems',city:'Surabaya',country:'Indonesia',sector:'Food technology',type:'Distribution partner',desc:'Food processing equipment and regional distribution services.',initials:'SF',founded:2008,employees:'120–180',languages:['Bahasa Indonesia','English','Mandarin'],exportYears:11,readiness:84,cepaFocus:'Food safety, labeling & cold-chain documentation',lookingFor:'German food-tech equipment and co-packing partners',valueProp:'Regional distribution plus processing know-how for packaged foods entering Eastern Indonesia.',problem:'Exporters struggle with last-mile cold chain and local retailer requirements.',audience:'Food brands, importers and processing plants',markets:['Indonesia','Malaysia','Export prep EU'],channels:['Distributor network','Food expos','Buyer missions'],certs:['HACCP','Halal','ISO 22000'],capacity:'Cold storage hubs · East Java network','response':'Same week',activity:[55,57,60,62,65,63,68,71,74,76,79,83],activityLabel:'Trade readiness pulse',activityDelta:'+12%'},
+{id:4,name:'Jakarta Pack Solutions',city:'Jakarta',country:'Indonesia',sector:'Packaging',type:'Supplier',desc:'Industrial packaging and sustainable material solutions.',initials:'JP',founded:2014,employees:'60–90',languages:['Bahasa Indonesia','English'],exportYears:5,readiness:69,cepaFocus:'Packaging waste rules & material declarations',lookingFor:'German brands needing ASEAN packaging supply or design partners',valueProp:'Industrial packaging with a growing portfolio of recyclable and lighter materials.',problem:'Importers need packaging that survives tropical logistics without excess plastic.',audience:'FMCG, industrial goods and e-commerce shippers',markets:['Greater Jakarta','Java','Export samples'],channels:['RFQs','Packaging trade shows','Referrals'],certs:['ISO 9001','Recycled-content specs'],capacity:'Custom runs · sample lab','response':'2–5 business days',activity:[28,31,35,40,38,44,47,50,53,56,59,63],activityLabel:'Buyer shortlist mentions',activityDelta:'+15%'},
+{id:5,name:'Elbe Industrial Systems',city:'Hamburg',country:'Germany',sector:'Machinery',type:'Technology supplier',desc:'Industrial automation systems seeking international channel partners.',initials:'EI',founded:1999,employees:'140–200',languages:['German','English'],exportYears:18,readiness:88,cepaFocus:'CE marking, spare-parts logistics & local service models',lookingFor:'Indonesian distributors and system integrators',valueProp:'Automation lines and control systems with training and after-sales packages for emerging markets.',problem:'Indonesian factories need partners who can support commissioning and spare parts locally.',audience:'Manufacturers upgrading production lines',markets:['EU','Turkey','Seeking Indonesia'],channels:['Hannover Messe','Distributor search','EKONID'],certs:['CE','ISO 9001','Machinery Directive docs'],capacity:'Modular lines · remote diagnostics','response':'1–2 business days',activity:[60,62,65,68,70,72,74,76,78,80,82,85],activityLabel:'Channel partner score',activityDelta:'+9%'},
+{id:6,name:'Bavaria Clean Process',city:'Munich',country:'Germany',sector:'Renewable energy',type:'Technology partner',desc:'Energy-efficient process equipment and engineering services.',initials:'BC',founded:2005,employees:'70–110',languages:['German','English'],exportYears:14,readiness:86,cepaFocus:'Energy project procurement & technical conformity',lookingFor:'Indonesian EPC and industrial energy partners',valueProp:'Heat-recovery and process efficiency equipment for mid-size industrial plants.',problem:'Plants need bankable efficiency upgrades with clear ROI documentation.',audience:'Industrial owners, engineering firms and green project developers',markets:['DACH','Central Europe','ASEAN exploration'],channels:['Engineering tenders','AHK Indonesia','Pilots'],certs:['CE','ISO 50001 advisory experience'],capacity:'Engineering + equipment packages','response':'2–3 business days',activity:[48,50,53,55,58,61,64,67,70,73,75,79],activityLabel:'Project fit index',activityDelta:'+14%'}
+];
+let activeCompanyId=null;let currentPage='dashboard';
+const checklistKeys=['check1','check2','check3','check4','check5','check6'];
+const tradeChecklistKeys=['tcheck1','tcheck2','tcheck3','tcheck4','tcheck5','tcheck6'];
+const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state;try{state=JSON.parse(localStorage.getItem('tripbridge-poc-v1'))||{}}catch(e){state={}}
+state={saved:[],meetings:[],checks:[],tradechecks:[],role:'german',lang:'en',...state};
+if(!['en','de','id'].includes(state.lang))state.lang='en';
+window.state=state;
+const persist=()=>localStorage.setItem('tripbridge-poc-v1',JSON.stringify(state));
+const byId=id=>document.getElementById(id);
+function toast(s){let el=byId('toast');el.textContent=s;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',3200)}
+function pageTitle(p){return t('title_'+p)}
+function setLang(lang){
+ if(!['en','de','id'].includes(lang))return;
+ state.lang=lang;persist();
+ applyStaticI18n();
+ syncOnboardingPreferences();
+ if(currentPage==='company')renderCompanyProfile();
+ else{render();if(byId('onboarding').classList.contains('show'))renderOnboarding()}
+}
+function applyStaticI18n(){
+ document.documentElement.lang=state.lang==='id'?'id':state.lang;
+ document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===state.lang));
+ const navIcon={dashboard:'◫',market:'◈',trade:'▤',partners:'◎',meetings:'▦',itinerary:'⌁',readiness:'✓',culture:'◇',tourism:'☼'};
+ document.querySelectorAll('.nav').forEach(btn=>{const p=btn.dataset.page;btn.innerHTML=`${navIcon[p]} &nbsp; ${t('nav_'+p)}`});
+ document.querySelectorAll('.nav-label')[0].textContent=t('nav_workspace');
+ document.querySelectorAll('.nav-label')[1].textContent=t('nav_prep');
+ document.querySelector('.setup-link').innerHTML='⚙ &nbsp; '+t('edit_setup');
+ document.querySelector('.sidebottom').innerHTML=`${t('side_demo')}<br>${t('side_proto')}<br><span style="color:#7dd3c7">${t('side_tagline')}</span>`;
+ document.querySelector('.edit-setup').textContent=t('edit_setup_short');
+ const role=byId('role');const rv=role.value;role.innerHTML=`<option value="german">${t('role_german')}</option><option value="indonesian">${t('role_indonesian')}</option>`;role.value=rv;
+ document.querySelector('#dashboard .eyebrow').textContent=t('eyebrow');
+ document.querySelector('#dashboard .hero .btn').textContent=t('cta_partners');
+ const dashStats=document.querySelectorAll('#dashboard .stats .card');
+ dashStats[0].querySelector('.stat-label').textContent=t('stat_profiles');dashStats[0].querySelector('.stat-note').textContent=t('stat_profiles_note');
+ dashStats[1].querySelector('.stat-label').textContent=t('stat_saved');dashStats[1].querySelector('.stat-note').textContent=t('stat_saved_note');
+ dashStats[2].querySelector('.stat-label').textContent=t('stat_meetings');dashStats[2].querySelector('.stat-note').textContent=t('stat_meetings_note');
+ dashStats[3].querySelector('.stat-label').textContent=t('stat_ready');dashStats[3].querySelector('.stat-note').textContent=t('stat_ready_note');
+ document.querySelector('#dashboard .sectiontitle h2').textContent=t('journey');
+ document.querySelector('#dashboard .section-sub').textContent=t('journey_sub');
+ const steps=document.querySelectorAll('#dashboard .step');
+ [['step1','step1s'],['step2','step2s'],['step3','step3s'],['step4','step4s'],['step5','step5s']].forEach((k,i)=>{steps[i].querySelector('strong').textContent=t(k[0]);steps[i].querySelector('small').textContent=t(k[1])});
+ document.querySelector('#dashboard .grid2 .split h3').textContent=t('suggested');
+ document.querySelector('#dashboard .grid2 .split .btn').textContent=t('view_all');
+ document.querySelectorAll('#dashboard .grid2 > .card')[1].querySelector('h3').textContent=t('prep_check');
+ document.querySelectorAll('#dashboard .grid2 > .card')[1].querySelector('p').textContent=t('prep_hint');
+ document.querySelectorAll('#dashboard .grid2 > .card')[1].querySelector('.btn').textContent=t('open_checklist');
+ const setHead=(id,h,p)=>{const el=byId(id);el.querySelector('.pagehead h1').textContent=t(h);el.querySelector('.pagehead p').textContent=t(p)};
+ setHead('market','market_h1','market_p');setHead('trade','trade_h1','trade_p');setHead('meetings','meetings_h1','meetings_p');setHead('itinerary','itinerary_h1','itinerary_p');setHead('culture','culture_h1','culture_p');setHead('tourism','tourism_h1','tourism_p');
+ byId('market').querySelector('.notice').textContent=t('market_notice');
+ byId('market').querySelector('.badge').textContent=t('badge_research');
+ byId('market').querySelector('h4').textContent=t('research_priorities');
+ byId('market').querySelectorAll('.card h3')[1].textContent=t('opp_assess');
+ byId('market').querySelectorAll('.card .muted')[0].textContent=t('opp_assess_p');
+ byId('market').querySelector('.sectiontitle h2').textContent=t('trusted');
+ const ms=byId('marketSector');const msv=ms.value||'Machinery & manufacturing';
+ ms.innerHTML=`<option value="Machinery & manufacturing">${t('sector_mach_full')}</option><option value="Food technology">${t('sector_food')}</option><option value="Renewable energy">${t('sector_renew')}</option><option value="Packaging">${t('sector_pack')}</option>`;
+ ms.value=msv;
+ const md=byId('marketDirection');const mdv=md.selectedIndex;
+ md.innerHTML=`<option>${t('dir_gi')}</option><option>${t('dir_ig')}</option>`;md.selectedIndex=mdv;
+ byId('trade').querySelector('.notice').textContent=t('trade_notice');
+ byId('trade').querySelectorAll('.card h3')[0].textContent=t('trade_checks');
+ byId('trade').querySelectorAll('.card h3')[1].textContent=t('tariff_assistant');
+ byId('trade').querySelectorAll('.formgroup label')[0].textContent=t('product_desc');
+ byId('productName').placeholder=t('product_ph');
+ byId('trade').querySelectorAll('.formgroup label')[1].textContent=t('direction');
+ const td=byId('tradeDirection');const tdi=td.selectedIndex;
+ td.innerHTML=`<option>${t('exp_gi')}</option><option>${t('exp_ig')}</option>`;td.selectedIndex=tdi;
+ byId('trade').querySelector('.btn').textContent=t('gen_checklist');
+ byId('trade').querySelector('.sectiontitle h2').textContent=t('official_res');
+ byId('partners').querySelector('.notice').textContent=t('partners_notice');
+ const ps=byId('partnerSector');const psv=ps.value;
+ ps.innerHTML=`<option value="all">${t('all_sectors')}</option><option value="Machinery">${t('sector_mach')}</option><option value="Food technology">${t('sector_food')}</option><option value="Renewable energy">${t('sector_renew')}</option><option value="Packaging">${t('sector_pack')}</option>`;
+ ps.value=psv;
+ byId('meetings').querySelector('.split h3').textContent=t('your_meetings');
+ byId('meetings').querySelector('.split .btn').textContent=t('find_partners');
+ byId('meetings').querySelectorAll('.card')[1].querySelector('h3').textContent=t('why_prep');
+ byId('meetings').querySelectorAll('.card')[1].querySelector('p').textContent=t('why_prep_p');
+ const insights=byId('meetings').querySelectorAll('.insight');
+ insights[0].innerHTML=`<strong>${t('before_m')}</strong><br>${t('before_m_p')}`;
+ insights[1].innerHTML=`<strong>${t('after_m')}</strong><br>${t('after_m_p')}`;
+ byId('itinerary').querySelectorAll('.card h3')[0].textContent=t('gen_agenda');
+ byId('itinerary').querySelectorAll('.formgroup label')[0].textContent=t('destination');
+ byId('itinerary').querySelectorAll('.formgroup label')[1].textContent=t('start_date');
+ byId('itinerary').querySelectorAll('.formgroup label')[2].textContent=t('business_days');
+ const days=byId('tripDays');const dv=days.value;
+ days.innerHTML=`<option value="2">${t('days_2')}</option><option value="3">${t('days_3')}</option><option value="4">${t('days_4')}</option>`;days.value=dv;
+ byId('itinerary').querySelector('.btn').textContent=t('gen_sample');
+ byId('itinerary').querySelector('.notice').textContent=t('trip_notice');
+ byId('itinerary').querySelectorAll('.card h3')[1].textContent=t('your_agenda');
+ if(byId('tripOutput').classList.contains('empty'))byId('tripOutput').textContent=t('trip_empty');
+ byId('readiness').querySelector('.split h3').textContent=t('ready_progress');
+ byId('readiness').querySelectorAll('.card h3')[1].textContent=t('pitch_builder');
+ const rfg=byId('readiness').querySelectorAll('.formgroup');
+ rfg[0].querySelector('label').textContent=t('company_name');byId('pitchName').placeholder=t('company_ph');
+ rfg[1].querySelector('label').textContent=t('offer_label');byId('pitchOffer').placeholder=t('offer_ph');
+ rfg[2].querySelector('label').textContent=t('ask_label');byId('pitchAsk').placeholder=t('ask_ph');
+ byId('readiness').querySelector('.btn').textContent=t('gen_pitch');
+ const cult=byId('culture').querySelectorAll('.feature');
+ [['cult1','cult1p'],['cult2','cult2p'],['cult3','cult3p'],['cult4','cult4p'],['cult5','cult5p'],['cult6','cult6p']].forEach((k,i)=>{cult[i].querySelector('h3').textContent=t(k[0]);cult[i].querySelector('p').textContent=t(k[1])});
+ const tour=byId('tourism').querySelectorAll('.feature');
+ [['tour1','tour1p'],['tour2','tour2p'],['tour3','tour3p']].forEach((k,i)=>{tour[i].querySelector('h3').textContent=t(k[0]);tour[i].querySelector('p').textContent=t(k[1]);tour[i].querySelector('.badge').textContent=t('future')});
+ document.querySelector('.footer').textContent=t('footer');
+ byId('modalTitle').textContent=t('modal_title');
+ document.querySelectorAll('#modalback .formgroup label')[0].textContent=t('proposed_date');
+ document.querySelectorAll('#modalback .formgroup label')[1].textContent=t('time');
+ document.querySelectorAll('#modalback .formgroup label')[2].textContent=t('objective');
+ byId('meetingObjective').placeholder=t('objective_ph');
+ document.querySelector('#modalback .btn.outline').textContent=t('cancel');
+ document.querySelectorAll('#modalback .btn')[1].textContent=t('send_request');
+ document.querySelector('.onboard-label').textContent=t('ob_label');
+ document.querySelector('.onboard-aside h2').textContent=t('ob_aside_h2');
+ document.querySelector('.onboard-aside > p').textContent=t('ob_aside_p');
+ document.querySelector('.onboard-asidefooter').innerHTML=`<span class="onboard-pulse"></span> ${t('ob_aside_foot')}`;
+ document.querySelector('.onboard-skip').textContent=(typeof onboardingEditMode!=='undefined'&&onboardingEditMode)?t('ob_cancel'):t('ob_skip');
+ document.querySelector('.onboard-footnote').textContent=t('ob_foot');
+ document.querySelector('.onboard-back').textContent=t('ob_back');
+ if(currentPage==='company'){byId('crumb').textContent=t('crumb_profile');byId('topTitle').textContent=companies.find(c=>c.id===activeCompanyId)?.name||t('title_company')}
+ else{byId('crumb').textContent=pageTitle(currentPage);byId('topTitle').textContent=pageTitle(currentPage)}
+ document.querySelector('.crumb').childNodes[0].textContent=t('crumb_workspace');
+}
+function go(p){if(p!=='company')activeCompanyId=null;currentPage=p;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===(p==='company'?'partners':p)));byId('crumb').textContent=p==='company'?t('crumb_profile'):pageTitle(p);byId('topTitle').textContent=p==='company'?(companies.find(c=>c.id===activeCompanyId)?.name||t('title_company')):pageTitle(p);byId('sidebar').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});if(p==='company')renderCompanyProfile();else render()};document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>go(b.dataset.page));byId('mobilemenu').onclick=()=>byId('sidebar').classList.toggle('open');byId('role').value=state.role;byId('role').onchange=e=>{state.role=e.target.value;state.profile={...(state.profile||{}),role:state.role,goal:null,targetCity:'all'};persist();syncOnboardingPreferences();render();toast(t('toast_role'))};
+function render(){const ind=state.role==='indonesian';byId('heroTitle').textContent=ind?t('hero_id'):t('hero_de');byId('heroDesc').textContent=ind?t('heroDesc_id'):t('heroDesc_de');byId('countSaved').textContent=state.saved.length;byId('countMeetings').textContent=state.meetings.length;byId('countReady').textContent=Math.round(state.checks.length/checklistKeys.length*100)+'%';byId('readinessTitle').textContent=ind?t('ready_id'):t('ready_de');byId('readinessDesc').textContent=ind?t('readyDesc_id'):t('readyDesc_de');let rec=companies.filter(c=>c.country===(ind?'Germany':'Indonesia')).sort((a,b)=>Number(b.sector===(state.profile?.sector||''))-Number(a.sector===(state.profile?.sector||''))||Number(b.city===(state.profile?.targetCity||''))-Number(a.city===(state.profile?.targetCity||''))).slice(0,3);byId('suggested').innerHTML=rec.map(c=>`<div class="company"><div class="company-logo">${c.initials}</div><div class="info"><strong>${c.name}</strong><small>${sectorLabel(c.sector)} · ${c.city}</small></div><button class="btn small outline" onclick="openCompany(${c.id})">${t('view_profile')}</button></div>`).join('');byId('dashchecks').innerHTML=checklistKeys.slice(0,4).map((k,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${t(k)}</span></label>`).join('');renderChecks();renderPartners();renderMeetings();renderMarket()}
+function toggleCheck(i,v,trade=false){let key=trade?'tradechecks':'checks';state[key]=v?[...new Set([...state[key],i])]:state[key].filter(x=>x!==i);persist();render()}function renderChecks(){let p=Math.round(state.checks.length/checklistKeys.length*100);byId('readyPercent').textContent=p+'%';byId('readyBar').style.width=p+'%';byId('readychecks').innerHTML=checklistKeys.map((k,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${t(k)}</span></label>`).join('');byId('tradechecks').innerHTML=tradeChecklistKeys.map((k,i)=>`<label class="check"><input type="checkbox" ${state.tradechecks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked,true)"><span>${t(k)}</span></label>`).join('')}
+function renderPartners(){let sec=byId('partnerSector').value,city=byId('partnerCity').value;let rows=companies.filter(c=>c.country===(state.role==='indonesian'?'Germany':'Indonesia')&&(sec==='all'||c.sector===sec)&&(city==='all'||c.city===city));byId('companyGrid').innerHTML=rows.length?rows.map(c=>`<div class="card companycard" onclick="openCompany(${c.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openCompany(${c.id})"><div class="company"><div class="company-logo">${c.initials}</div><div class="info"><strong>${c.name}</strong><small>${c.city}, ${countryLabel(c.country)}</small></div></div><span class="tag">${sectorLabel(c.sector)}</span><p>${c.desc}</p><div class="metricrow"><span>${t('partner_type')}<br><b>${c.type}</b></span><span>${t('readiness')}<br><b>${c.readiness}%</b></span></div><div class="bottom" onclick="event.stopPropagation()"><button class="btn small outline" onclick="toggleSave(${c.id})">${state.saved.includes(c.id)?t('saved'):t('save_partner')}</button><button class="btn small" onclick="openCompany(${c.id})">${t('view_entreprise')}</button></div></div>`).join(''):`<div class="empty">${t('no_profiles')}</div>`}['partnerSector','partnerCity'].forEach(id=>byId(id).addEventListener('input',renderPartners));function toggleSave(id){state.saved=state.saved.includes(id)?state.saved.filter(x=>x!==id):[...state.saved,id];persist();if(activeCompanyId===id)renderCompanyProfile();else render();toast(state.saved.includes(id)?t('toast_saved'):t('toast_unsaved'))}
+function openCompany(id){activeCompanyId=id;go('company')}
+function chartPath(values,w,h,pad){const min=Math.min(...values)*.85,max=Math.max(...values)*1.05,span=max-min||1;const pts=values.map((v,i)=>{const x=pad+(i/(values.length-1))*(w-pad*2);const y=h-pad-((v-min)/span)*(h-pad*2);return[x,y]});const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');const area=line+` L${pts[pts.length-1][0].toFixed(1)},${h-pad} L${pts[0][0].toFixed(1)},${h-pad} Z`;return{line,area,last:values[values.length-1]}}
+function renderCompanyProfile(){
+ const c=companies.find(x=>x.id===activeCompanyId);if(!c){go('partners');return}
+ const flag=c.country==='Germany'?'🇩🇪':'🇮🇩';
+ const saved=state.saved.includes(c.id);
+ const w=920,h=210,pad=18;const paths=chartPath(c.activity,w,h,pad);
+ byId('companyProfile').innerHTML=`
+ <button class="cp-back" onclick="go('partners')">${t('back_partners')}</button>
+ <div class="cp-header">
+  <div class="cp-identity"><div class="cp-logo">${c.initials}</div><div>
+   <h1>${safe(c.name)}</h1>
+   <div class="cp-meta"><span class="cp-flag">${flag}</span><span>${safe(c.city)}, ${countryLabel(c.country)}</span><span>·</span><span class="tag">${sectorLabel(c.sector)}</span><span class="tag amber">${safe(c.type)}</span></div>
+  </div></div>
+  <div class="cp-actions">
+   <button class="btn outline" onclick="toggleSave(${c.id})">${saved?t('saved'):t('save_partner')}</button>
+   <button class="btn" onclick="openMeeting(${c.id})">${t('request_meeting')}</button>
+  </div>
+ </div>
+ <p class="cp-lead">${safe(c.desc)} ${t('looking_for')} <strong>${safe(c.lookingFor)}</strong></p>
+ <div class="cp-stats">
+  <div class="card cp-stat"><div class="stat-label">${t('readiness_label')}</div><div class="stat-value">${c.readiness}%</div><div class="stat-note">${t('readiness_note')}</div></div>
+  <div class="card cp-stat"><div class="stat-label">${t('export_exp')}</div><div class="stat-value">${c.exportYears} ${t('yrs')}</div><div class="stat-note">${t('export_note')}</div></div>
+  <div class="card cp-stat"><div class="stat-label">${t('team_size')}</div><div class="stat-value" style="font-size:22px">${safe(c.employees)}</div><div class="stat-note">${t('team_note')}</div></div>
+  <div class="card cp-stat"><div class="stat-label">${t('founded')}</div><div class="stat-value">${c.founded}</div><div class="stat-note">${flag} ${countryLabel(c.country)}</div></div>
+ </div>
+ <div class="card cp-chart">
+  <div class="cp-chart-top">
+   <div><div class="stat-label">${safe(c.activityLabel)}</div><div class="cp-chart-metric">${paths.last}<span class="cp-delta">↑ ${safe(c.activityDelta)} ${t('vs_prior')}</span></div><div class="muted" style="font-size:12px;margin-top:4px">${t('chart_demo')}</div></div>
+   <div class="cp-chart-controls"><span class="pill">${sectorLabel(c.sector)}</span><span class="pill">${t('last_12')}</span></div>
+  </div>
+  <svg class="cp-chart-svg" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Illustrative activity chart">
+   <defs><linearGradient id="cpFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0d988b" stop-opacity=".28"/><stop offset="100%" stop-color="#0d988b" stop-opacity="0"/></linearGradient></defs>
+   <path d="${paths.area}" fill="url(#cpFill)"></path>
+   <path d="${paths.line}" fill="none" stroke="#0a8f84" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+  <div class="cp-chart-foot"><span>${t('chart_foot')}</span><span>${t('cepa_focus')} ${safe(c.cepaFocus)}</span></div>
+ </div>
+ <h2 class="cp-insights-title">${t('insights')}</h2>
+ <div class="cp-grid">
+  <div class="card"><h3>💡 ${t('value_prop')}</h3><p>${safe(c.valueProp)}</p></div>
+  <div class="card"><h3>◎ ${t('opp_fit')}</h3><p>${safe(c.problem)}</p></div>
+  <div class="card"><h3>◎ ${t('audience')}</h3><p>${safe(c.audience)}</p><div class="cp-pills">${c.markets.map(m=>`<span class="cp-pill">${safe(m)}</span>`).join('')}</div></div>
+  <div class="card"><h3>◎ ${t('markets_ch')}</h3><div class="cp-stack"><div><small>${t('channels')}</small><div class="cp-pills">${c.channels.map(m=>`<span class="cp-pill">${safe(m)}</span>`).join('')}</div></div></div></div>
+  <div class="card"><h3>✓ ${t('quality')}</h3><p>${t('quality_p')}</p><div class="cp-pills">${c.certs.map(m=>`<span class="cp-pill">${safe(m)}</span>`).join('')}</div></div>
+  <div class="card"><h3>◎ ${t('additional')}</h3><p><strong>${t('languages')}</strong> ${c.languages.map(safe).join(', ')}<br><strong>${t('capacity')}</strong> ${safe(c.capacity)}<br><strong>${t('response')}</strong> ${safe(c.response)}</p></div>
+ </div>
+ <div class="notice" style="margin-top:16px">${t('profile_notice')}</div>`;
+}
+let meetingCompany=null;function openMeeting(id){meetingCompany=id;let c=companies.find(x=>x.id===id);byId('modalCompany').textContent=c.name+' · '+c.city;byId('meetingDate').min=new Date().toISOString().slice(0,10);byId('meetingDate').value='';byId('meetingObjective').value='';byId('modalback').classList.add('show')}function closeModal(){byId('modalback').classList.remove('show')}byId('modalback').onclick=e=>{if(e.target===byId('modalback'))closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});function submitMeeting(){let date=byId('meetingDate').value;if(!date||date<new Date().toISOString().slice(0,10)){toast(t('toast_date'));return}let obj=byId('meetingObjective').value.trim();if(!obj){toast(t('toast_obj'));return}state.meetings.push({id:Date.now(),companyId:meetingCompany,date,time:byId('meetingTime').value,objective:obj,status:'Requested',notes:''});persist();closeModal();go('meetings');toast(t('toast_meeting'))}
+function renderMeetings(){byId('meetingList').innerHTML=state.meetings.length?state.meetings.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(m=>{let c=companies.find(x=>x.id===m.companyId);return `<div class="listrow"><div><strong>${safe(c?.name||'Company')}</strong><small>${safe(m.date)} at ${safe(m.time)} · ${safe(c?.city||'')}</small><div style="font-size:12px;margin-top:5px">${safe(m.objective)}</div><span class="tag amber">${m.status==='Requested'?t('status_requested'):safe(m.status)}</span>${m.notes?`<p style="font-size:12px">${t('follow_up_label')} ${safe(m.notes)}</p>`:''}</div><div style="display:grid;gap:7px"><button class="btn small outline" onclick="addNote(${m.id})">${t('follow_up')}</button><button class="btn small outline" onclick="deleteMeeting(${m.id})">${t('remove')}</button></div></div>`}).join(''):`<div class="empty">${t('no_meetings')}</div>`}function addNote(id){let m=state.meetings.find(x=>x.id===id);let note=prompt(t('follow_up')+':',m.notes||'');if(note!==null){m.notes=note.slice(0,2000);persist();renderMeetings();toast(t('toast_follow'))}}function deleteMeeting(id){if(confirm(t('confirm_remove'))){state.meetings=state.meetings.filter(m=>m.id!==id);persist();render()}}
+const sectorMeta={'Machinery & manufacturing':{desc:'mdesc_mach',tasks:['mtask_mach1','mtask_mach2','mtask_mach3'],bars:[72,55,82]},'Food technology':{desc:'mdesc_food',tasks:['mtask_food1','mtask_food2','mtask_food3'],bars:[65,75,61]},'Renewable energy':{desc:'mdesc_renew',tasks:['mtask_renew1','mtask_renew2','mtask_renew3'],bars:[79,48,72]},'Packaging':{desc:'mdesc_pack',tasks:['mtask_pack1','mtask_pack2','mtask_pack3'],bars:[68,67,74]}};function renderMarket(){let sector=byId('marketSector').value,d=sectorMeta[sector];byId('sectorTitle').textContent=sectorLabel(sector);byId('sectorText').textContent=t(d.desc);byId('sectorPriorities').innerHTML=d.tasks.map(k=>`<div class="check">✓ &nbsp; ${t(k)}</div>`).join('');byId('marketBars').innerHTML=['bar1','bar2','bar3'].map((k,i)=>`<div class="split"><span>${t(k)}</span><small class="muted">${t('illustrative')}</small></div><div class="bar"><span style="width:${d.bars[i]}%"></span></div>`).join('')}byId('marketSector').onchange=renderMarket;byId('marketDirection').onchange=()=>toast(t('toast_market'));function tradeResult(){let name=byId('productName').value.trim();if(!name){toast(t('toast_product'));return}byId('tradeResult').innerHTML=`<div class="insight"><strong>${t('research_plan')} ${safe(name)}</strong><p>${t('trade_steps')}</p><small>${t('no_tariff')}</small></div>`}
+function makeTrip(){let date=byId('tripDate').value;if(!date){toast(t('toast_trip'));return}let days=Number(byId('tripDays').value),city=byId('tripCity').value;let ms=state.meetings.filter(m=>companies.find(c=>c.id===m.companyId)?.city===city);let html='';for(let i=0;i<days;i++){let d=new Date(date+'T12:00:00');d.setDate(d.getDate()+i);let day=d.toISOString().slice(0,10);let matches=ms.filter(m=>m.date===day);html+=`<h4>${t('day')} ${i+1} · ${day}</h4><div class="timeline"><div class="event"><small>09:00</small><strong>${t('review_obj')}</strong><small>${t('prepare_docs')}</small></div>${matches.map(m=>`<div class="event"><small>${safe(m.time)}</small><strong>${safe(companies.find(c=>c.id===m.companyId)?.name)}</strong><small>${t('requested_nc')} ${safe(m.objective)}</small></div>`).join('')}${matches.length?'':`<div class="event"><small>${t('to_arrange')}</small><strong>${t('partner_slots')}</strong><small>${t('req_in_partners')}</small></div>`}<div class="event"><small>${t('after_meetings')}</small><strong>${t('doc_decisions')}</strong><small>${t('confirm_next')}</small></div></div>`}byId('tripOutput').innerHTML=html+`<div class="notice">${t('trip_buffer')}</div>`}
+function makePitch(){let name=byId('pitchName').value.trim(),offer=byId('pitchOffer').value.trim(),ask=byId('pitchAsk').value.trim();if(!name||!offer||!ask){toast(t('toast_pitch'));return}let outline=`${name}\n\n${t('pitch_offer')}\n${offer}\n\n${t('pitch_seek')}\n${ask}\n\n${t('pitch_attach')}\n${t('pitch_a')}\n${t('pitch_b')}\n${t('pitch_c')}\n${t('pitch_d')}`;byId('pitchOutput').innerHTML=`<div class="insight"><strong>${t('pitch_outline')}</strong><pre style="white-space:pre-wrap;font:inherit">${safe(outline)}</pre><button class="btn small outline" id="copyPitch">${t('copy_outline')}</button></div>`;byId('copyPitch').onclick=()=>{navigator.clipboard?.writeText(outline).then(()=>toast(t('toast_copied'))).catch(()=>toast(t('toast_clip')))}}
 
 // Onboarding flow / guided workspace configuration
 const obGoals={
   german:[
-    {id:'Find Indonesian distributors',symbol:'↗',title:'Find distributors',text:'Bring my products into the Indonesian market'},
-    {id:'Find suppliers and manufacturers',symbol:'▤',title:'Find suppliers',text:'Source products or industrial partners'},
-    {id:'Explore a new market',symbol:'◈',title:'Explore the market',text:'Research sectors, trade rules and opportunities'},
-    {id:'Explore investment opportunities',symbol:'◎',title:'Invest or collaborate',text:'Identify companies for investment or joint ventures'}
+    {id:'Find Indonesian distributors',symbol:'↗',titleKey:'g_de_1t',textKey:'g_de_1s'},
+    {id:'Find suppliers and manufacturers',symbol:'▤',titleKey:'g_de_2t',textKey:'g_de_2s'},
+    {id:'Explore a new market',symbol:'◈',titleKey:'g_de_3t',textKey:'g_de_3s'},
+    {id:'Explore investment opportunities',symbol:'◎',titleKey:'g_de_4t',textKey:'g_de_4s'}
   ],
   indonesian:[
-    {id:'Find German buyers',symbol:'↗',title:'Reach German buyers',text:'Export products and find new customers'},
-    {id:'Attract foreign investment',symbol:'◎',title:'Attract investors',text:'Prepare a strong profile and investor pitch'},
-    {id:'Find technology partners',symbol:'⚙',title:'Find tech partners',text:'Collaborate with German SMEs and experts'},
-    {id:'Explore the German market',symbol:'◈',title:'Enter the EU market',text:'Understand requirements and opportunities'}
+    {id:'Find German buyers',symbol:'↗',titleKey:'g_id_1t',textKey:'g_id_1s'},
+    {id:'Attract foreign investment',symbol:'◎',titleKey:'g_id_2t',textKey:'g_id_2s'},
+    {id:'Find technology partners',symbol:'⚙',titleKey:'g_id_3t',textKey:'g_id_3s'},
+    {id:'Explore the German market',symbol:'◈',titleKey:'g_id_4t',textKey:'g_id_4s'}
   ]
 };
 const obSectors=[
- {id:'Machinery',symbol:'⚙',text:'Machinery & manufacturing'},
- {id:'Food technology',symbol:'◈',text:'Food technology'},
- {id:'Renewable energy',symbol:'☀',text:'Clean energy'},
- {id:'Packaging',symbol:'▣',text:'Packaging'}
+ {id:'Machinery',symbol:'⚙',textKey:'sec_mach'},
+ {id:'Food technology',symbol:'◈',textKey:'sec_food'},
+ {id:'Renewable energy',symbol:'☀',textKey:'sec_renew'},
+ {id:'Packaging',symbol:'▣',textKey:'sec_pack'}
 ];
 let onboardingStep=0;
 let onboardingEditMode=false;
 let onboardingDraft={};
 function openOnboarding(edit=false){
   onboardingEditMode=Boolean(edit&&state.onboardingComplete);
-  document.querySelector('.onboard-skip').textContent=onboardingEditMode?'Cancel':'Skip for now';
+  document.querySelector('.onboard-skip').textContent=onboardingEditMode?t('ob_cancel'):t('ob_skip');
   if(byId('modalback').classList.contains('show'))closeModal();
   const p=state.profile||{};
   onboardingDraft={role:p.role||state.role||'german',goal:p.goal||null,sector:p.sector||null,targetCity:p.targetCity||'all',companyName:p.companyName||'',homeCity:p.homeCity||''};
@@ -185,47 +403,48 @@ function onboardSelectSector(sector){
 }
 function obCityChoices(){
  return onboardingDraft.role==='indonesian'?
- [['all','Anywhere in Germany'],['Hamburg','Hamburg'],['Munich','Munich']]:
- [['all','Anywhere in Indonesia'],['Jakarta','Jakarta'],['Bandung','Bandung'],['Surabaya','Surabaya']];
+ [['all',t('ob_any_de')],['Hamburg','Hamburg'],['Munich','Munich']]:
+ [['all',t('ob_any_id')],['Jakarta','Jakarta'],['Bandung','Bandung'],['Surabaya','Surabaya']];
 }
 function renderOnboarding(){
  const d=onboardingDraft;
- byId('onboardStepLabel').textContent='STEP '+(onboardingStep+1)+' OF 4';
+ byId('onboardStepLabel').textContent=t('ob_step',{n:onboardingStep+1});
  byId('onboardProgress').setAttribute('aria-valuenow',String(onboardingStep+1));
  byId('onboardProgress').innerHTML=[0,1,2,3].map(i=>'<span class="'+(i<=onboardingStep?'done':'')+'"></span>').join('');
  let body='';
  if(onboardingStep===0){
-  body=`<div class="onboard-kicker">Your starting point</div><h1 id="onboardingTitle">How will you use TripBridge?</h1><p id="onboardingSubtitle" class="onboard-lead">Choose the workspace that best represents your business. The platform adapts its recommendations, checklists and partner discovery.</p>
+  body=`<div class="onboard-kicker">${t('ob_k1')}</div><h1 id="onboardingTitle">${t('ob_t1')}</h1><p id="onboardingSubtitle" class="onboard-lead">${t('ob_l1')}</p>
   <div class="onboard-choices role-options">
-    <button class="onboard-option ${d.role==='german'?'selected':''}" aria-pressed="${d.role==='german'}" onclick="onboardSelectRole('german')"><span class="symbol">🇩🇪</span><span><strong>German SME / investor</strong><small>Discover markets and partners in Indonesia.</small></span></button>
-    <button class="onboard-option ${d.role==='indonesian'?'selected':''}" aria-pressed="${d.role==='indonesian'}" onclick="onboardSelectRole('indonesian')"><span class="symbol">🇮🇩</span><span><strong>Indonesian company</strong><small>Prepare to work with German and EU partners.</small></span></button>
-  </div><div class="onboard-choice-note">↗ Both sides have a tailored workspace. You can switch roles again anytime.</div>`;
+    <button class="onboard-option ${d.role==='german'?'selected':''}" aria-pressed="${d.role==='german'}" onclick="onboardSelectRole('german')"><span class="symbol">🇩🇪</span><span><strong>${t('ob_role_de')}</strong><small>${t('ob_role_de_s')}</small></span></button>
+    <button class="onboard-option ${d.role==='indonesian'?'selected':''}" aria-pressed="${d.role==='indonesian'}" onclick="onboardSelectRole('indonesian')"><span class="symbol">🇮🇩</span><span><strong>${t('ob_role_id')}</strong><small>${t('ob_role_id_s')}</small></span></button>
+  </div><div class="onboard-choice-note">${t('ob_note')}</div>`;
  } else if(onboardingStep===1){
-  body=`<div class="onboard-kicker">Your business objective</div><h1 id="onboardingTitle">What do you want to achieve?</h1><p id="onboardingSubtitle" class="onboard-lead">We'll highlight the most relevant tools and partner profiles based on your priority.</p>
-   <div class="onboard-choices">${obGoals[d.role].map(g=>`<button class="onboard-option ${d.goal===g.id?'selected':''}" aria-pressed="${d.goal===g.id}" onclick="onboardSelectGoal('${g.id}')"><span class="symbol">${g.symbol}</span><span><strong>${g.title}</strong><small>${g.text}</small></span></button>`).join('')}</div>`;
+  body=`<div class="onboard-kicker">${t('ob_k2')}</div><h1 id="onboardingTitle">${t('ob_t2')}</h1><p id="onboardingSubtitle" class="onboard-lead">${t('ob_l2')}</p>
+   <div class="onboard-choices">${obGoals[d.role].map(g=>`<button class="onboard-option ${d.goal===g.id?'selected':''}" aria-pressed="${d.goal===g.id}" onclick="onboardSelectGoal('${g.id}')"><span class="symbol">${g.symbol}</span><span><strong>${t(g.titleKey)}</strong><small>${t(g.textKey)}</small></span></button>`).join('')}</div>`;
  } else if(onboardingStep===2){
-  body=`<div class="onboard-kicker">Your market focus</div><h1 id="onboardingTitle">Which sector interests you?</h1><p id="onboardingSubtitle" class="onboard-lead">Pick your industry and preferred destination to shape your market overview and company shortlist.</p>
-  <div class="onboard-sectorgrid">${obSectors.map(s=>`<button class="onboard-option ${d.sector===s.id?'selected':''}" aria-pressed="${d.sector===s.id}" onclick="onboardSelectSector('${s.id}')"><span class="symbol">${s.symbol}</span><span><strong>${s.text}</strong></span></button>`).join('')}</div>
-  <label class="onboard-select-label" for="onboardCity">Preferred partner location</label><select class="onboard-select" id="onboardCity" onchange="onboardingDraft.targetCity=this.value">${obCityChoices().map(([v,label])=>`<option value="${v}" ${d.targetCity===v?'selected':''}>${label}</option>`).join('')}</select>`;
+  body=`<div class="onboard-kicker">${t('ob_k3')}</div><h1 id="onboardingTitle">${t('ob_t3')}</h1><p id="onboardingSubtitle" class="onboard-lead">${t('ob_l3')}</p>
+  <div class="onboard-sectorgrid">${obSectors.map(s=>`<button class="onboard-option ${d.sector===s.id?'selected':''}" aria-pressed="${d.sector===s.id}" onclick="onboardSelectSector('${s.id}')"><span class="symbol">${s.symbol}</span><span><strong>${t(s.textKey)}</strong></span></button>`).join('')}</div>
+  <label class="onboard-select-label" for="onboardCity">${t('ob_city_label')}</label><select class="onboard-select" id="onboardCity" onchange="onboardingDraft.targetCity=this.value">${obCityChoices().map(([v,label])=>`<option value="${v}" ${d.targetCity===v?'selected':''}>${label}</option>`).join('')}</select>`;
  } else {
-  body=`<div class="onboard-kicker">Make it yours</div><h1 id="onboardingTitle">Set up your business profile.</h1><p id="onboardingSubtitle" class="onboard-lead">Add a few details for your demo workspace. You can leave these blank and update them later.</p>
-  <div class="onboard-inputs"><div><label for="onboardCompany">Company or organization <span class="optional">(optional)</span></label><input id="onboardCompany" maxlength="80" value="${safe(d.companyName)}" placeholder="e.g. Berlin Industrial Solutions" oninput="onboardingDraft.companyName=this.value"></div>
-  <div><label for="onboardHomeCity">Your home city <span class="optional">(optional)</span></label><input id="onboardHomeCity" maxlength="60" value="${safe(d.homeCity)}" placeholder="${d.role==='german'?'e.g. Berlin':'e.g. Jakarta'}" oninput="onboardingDraft.homeCity=this.value"></div></div>
-  <div class="onboard-summary"><div class="srow"><span>Workspace</span><strong>${d.role==='german'?'German SME / Investor':'Indonesian company'}</strong></div><div class="srow"><span>Main goal</span><strong>${safe(d.goal||'Explore opportunities')}</strong></div><div class="srow"><span>Sector</span><strong>${safe(d.sector||'Any sector')}</strong></div><div class="srow"><span>Target market</span><strong>${safe(obCityChoices().find(x=>x[0]===d.targetCity)?.[1]||'Any city')}</strong></div></div>`;
+  const goalLabel=obGoals[d.role].find(g=>g.id===d.goal);
+  body=`<div class="onboard-kicker">${t('ob_k4')}</div><h1 id="onboardingTitle">${t('ob_t4')}</h1><p id="onboardingSubtitle" class="onboard-lead">${t('ob_l4')}</p>
+  <div class="onboard-inputs"><div><label for="onboardCompany">${t('ob_company')} <span class="optional">${t('ob_optional')}</span></label><input id="onboardCompany" maxlength="80" value="${safe(d.companyName)}" placeholder="e.g. Berlin Industrial Solutions" oninput="onboardingDraft.companyName=this.value"></div>
+  <div><label for="onboardHomeCity">${t('ob_home')} <span class="optional">${t('ob_optional')}</span></label><input id="onboardHomeCity" maxlength="60" value="${safe(d.homeCity)}" placeholder="${d.role==='german'?'e.g. Berlin':'e.g. Jakarta'}" oninput="onboardingDraft.homeCity=this.value"></div></div>
+  <div class="onboard-summary"><div class="srow"><span>${t('ob_sum_ws')}</span><strong>${d.role==='german'?t('ob_role_de'):t('ob_role_id')}</strong></div><div class="srow"><span>${t('ob_sum_goal')}</span><strong>${goalLabel?t(goalLabel.titleKey):t('explore_opp')}</strong></div><div class="srow"><span>${t('ob_sum_sector')}</span><strong>${d.sector?sectorLabel(d.sector):t('ob_any_sector')}</strong></div><div class="srow"><span>${t('ob_sum_target')}</span><strong>${safe(obCityChoices().find(x=>x[0]===d.targetCity)?.[1]||'')}</strong></div></div>`;
  }
  byId('onboardBody').innerHTML=body;
  byId('onboardBack').disabled=onboardingStep===0;
- byId('onboardNext').innerHTML=(onboardingStep===3?'Open my workspace':'Continue')+' <span aria-hidden="true">→</span>';
+ byId('onboardNext').innerHTML=(onboardingStep===3?t('ob_open'):t('ob_continue'))+' <span aria-hidden="true">→</span>';
  byId('onboardNext').disabled=(onboardingStep===1&&!d.goal)||(onboardingStep===2&&!d.sector);
 }
 function onboardPrevious(){if(onboardingStep>0){onboardingStep--;renderOnboarding()}}
 function onboardNext(){
- if(onboardingStep===1&&!onboardingDraft.goal){toast('Choose one business goal');return}
- if(onboardingStep===2&&!onboardingDraft.sector){toast('Choose an industry');return}
+ if(onboardingStep===1&&!onboardingDraft.goal){toast(t('toast_goal'));return}
+ if(onboardingStep===2&&!onboardingDraft.sector){toast(t('toast_industry'));return}
  if(onboardingStep<3){onboardingStep++;renderOnboarding();return}
  completeOnboarding(false);
 }
-function skipOnboarding(){if(onboardingEditMode){closeOnboarding();toast('No changes saved');return}completeOnboarding(true)}
+function skipOnboarding(){if(onboardingEditMode){closeOnboarding();toast(t('toast_nosave'));return}completeOnboarding(true)}
 function completeOnboarding(skipped){
  const d={...onboardingDraft};
  state.role=d.role;
@@ -237,7 +456,7 @@ function completeOnboarding(skipped){
  closeOnboarding();
  syncOnboardingPreferences();
  go('dashboard');
- toast(skipped?'Demo opened. You can finish setup anytime.':'Your workspace is ready');
+ toast(skipped?t('toast_skip'):t('toast_ready'));
 }
 function syncOnboardingPreferences(){
  const p=state.profile||{};
@@ -246,10 +465,10 @@ function syncOnboardingPreferences(){
  trip.innerHTML=countries.map(city=>`<option>${city}</option>`).join('');
  trip.value=countries.includes(p.targetCity)?p.targetCity:(countries.includes(prev)?prev:countries[0]);
  const pc=byId('partnerCity');
- pc.innerHTML='<option value="all">All cities</option>'+countries.map(city=>`<option>${city}</option>`).join('');
+ pc.innerHTML='<option value="all">'+t('all_cities')+'</option>'+countries.map(city=>`<option>${city}</option>`).join('');
  pc.value=countries.includes(p.targetCity)?p.targetCity:'all';
  const ps=byId('partnerSector');ps.value=p.sector||'all';
- byId('marketDirection').value=state.role==='indonesian'?'Indonesia → Germany':'Germany → Indonesia';
+ byId('marketDirection').selectedIndex=state.role==='indonesian'?1:0;
  const map={'Machinery':'Machinery & manufacturing','Food technology':'Food technology','Renewable energy':'Renewable energy','Packaging':'Packaging'};
  if(p.sector&&map[p.sector])byId('marketSector').value=map[p.sector];
  if(p.companyName&&!byId('pitchName').value)byId('pitchName').value=p.companyName;
@@ -258,10 +477,11 @@ function renderSetupContext(){
  const node=byId('setupContext'),p=state.profile||{};
  if(!state.onboardingComplete){node.style.display='none';return}
  node.style.display='flex';
- const target=state.role==='indonesian'?'Germany':'Indonesia';
- const label=state.onboardingSkipped?'Personalize your workspace':(p.companyName||'Your personalized workspace');
- const goal=p.goal||'Explore opportunities';
- node.innerHTML=`<div><span class="minitag">${state.onboardingSkipped?'SETUP AVAILABLE':'YOUR BUSINESS FOCUS'}</span><h3>${safe(label)}</h3><p>${safe(goal)} · ${safe(p.sector||'All sectors')} · ${safe(p.targetCity==='all'?'Across '+target:p.targetCity)}</p></div><button class="btn small outline" onclick="openOnboarding(true)">${state.onboardingSkipped?'Complete setup':'Edit preferences'} ↗</button>`;
+ const target=state.role==='indonesian'?t('country_germany'):t('country_indonesia');
+ const label=state.onboardingSkipped?t('personalize'):(p.companyName||t('your_workspace'));
+ const goalObj=[...obGoals.german,...obGoals.indonesian].find(g=>g.id===p.goal);
+ const goal=goalObj?t(goalObj.titleKey):t('explore_opp');
+ node.innerHTML=`<div><span class="minitag">${state.onboardingSkipped?t('setup_available'):t('business_focus')}</span><h3>${safe(label)}</h3><p>${safe(goal)} · ${safe(p.sector?sectorLabel(p.sector):t('all_sectors_label'))} · ${safe(p.targetCity==='all'?t('across')+' '+target:p.targetCity)}</p></div><button class="btn small outline" onclick="openOnboarding(true)">${state.onboardingSkipped?t('complete_setup'):t('edit_prefs')} ↗</button>`;
 }
 const originalRender=render;
 render=function(){
@@ -270,10 +490,11 @@ render=function(){
  const p=state.profile||{};
  const name=p.companyName?p.companyName+' — ':'';
  if(state.onboardingComplete&&!state.onboardingSkipped&&p.goal){
-   byId('heroDesc').textContent=name+'Your focus: '+p.goal+'. Browse relevant companies, prepare your documents and plan productive meetings.';
+   const goalObj=[...obGoals.german,...obGoals.indonesian].find(g=>g.id===p.goal);
+   byId('heroDesc').textContent=name+t('hero_focus',{goal:goalObj?t(goalObj.titleKey):p.goal});
  }
  byId('countProfiles').textContent=companies.filter(c=>c.country===(state.role==='indonesian'?'Germany':'Indonesia')).length;
 };
 
-byId('tripDate').min=new Date().toISOString().slice(0,10);syncOnboardingPreferences();render();if(!state.onboardingComplete)openOnboarding();
+byId('tripDate').min=new Date().toISOString().slice(0,10);applyStaticI18n();syncOnboardingPreferences();render();if(!state.onboardingComplete)openOnboarding();
 </script></body></html>

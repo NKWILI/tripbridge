@@ -110,10 +110,98 @@ body.onboarding-open{overflow:hidden}
 .lang-switch.light .lang-btn:hover:not(.active){color:#173148}
 .onboard-topline-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 
+/* CEPA trade checklist */
+.tcheck-list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.tcheck-item{border:1px solid var(--line);border-radius:11px;background:#fbfcfd;overflow:hidden}
+.tcheck-item.blocking{border-color:#f1dfb7;background:#fffdf8}
+.tcheck-row{display:flex;gap:10px;align-items:flex-start;padding:12px 12px 10px}
+.tcheck-row input{margin-top:3px;accent-color:#0b8b7d;width:17px;height:17px;flex-shrink:0}
+.tcheck-main{flex:1;min-width:0}
+.tcheck-title{display:flex;flex-wrap:wrap;gap:7px;align-items:center;font-weight:750;font-size:13px;line-height:1.35}
+.tcheck-sev{font-size:9px;letter-spacing:.6px;font-weight:800;border-radius:5px;padding:3px 6px;text-transform:uppercase}
+.tcheck-sev.mandatory,.tcheck-sev.critical{background:#e8f6f2;color:#08766d}
+.tcheck-sev.blocking{background:#fff3e3;color:#a66b22}
+.tcheck-sev.recommended{background:#eef3f7;color:#4d6275}
+.tcheck-clause{font-size:10px;color:#6d8194;font-weight:700;margin-top:5px}
+.tcheck-toggle{border:0;background:transparent;color:#0a756e;font-size:11px;font-weight:750;padding:0;margin-top:6px}
+.tcheck-toggle:hover{text-decoration:underline}
+.tcheck-why{display:none;padding:0 12px 12px 39px;color:#5a6f82;font-size:12px;line-height:1.55}
+.tcheck-item.open .tcheck-why{display:block}
+.trade-frame{background:#edf8f5;border:1px solid #cfe8e1;border-radius:12px;padding:14px 16px;margin:0 0 16px;font-size:12px;color:#355f5a;line-height:1.55}
+.trade-frame strong{color:#0a5f5a}
+.research-steps{margin:10px 0 0;padding-left:18px}
+.research-steps li{margin:7px 0;font-size:13px;line-height:1.45}
+.case-bar{background:linear-gradient(110deg,#12324b,#0b6669);color:#e7f6f3;border-radius:14px;padding:16px 18px;margin:0 0 16px;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}
+.case-bar h3{margin:0 0 4px;font-size:15px;letter-spacing:-.2px}
+.case-bar p{margin:0;font-size:12px;color:#b9d9d6;line-height:1.5;max-width:640px}
+.case-bar .case-actions{display:flex;gap:8px;flex-wrap:wrap}
+.case-bar .btn.secondary{background:#fff;color:#0a756e}
+.case-progress{display:flex;align-items:center;gap:10px;margin-top:8px}
+.case-progress .bar{flex:1;min-width:120px;margin:0;height:8px}
+.case-chip{display:inline-flex;align-items:center;gap:6px;background:#ffffff18;border:1px solid #ffffff28;border-radius:20px;padding:4px 10px;font-size:11px;font-weight:750}
+.case-gap{background:#fff8e9;border:1px solid #f1dfb7;border-radius:10px;padding:12px 14px;margin:14px 0;font-size:12px;color:#8c642c}
+.case-gap ul{margin:8px 0 0;padding-left:18px}
+.case-gap li{margin:4px 0}
+.gate-list{margin:12px 0;padding-left:18px;font-size:13px;color:#4d6174}
+.gate-list li{margin:6px 0}
+.market-cta{margin-top:14px}
+.case-strip{background:#12324b;color:#e7f6f3;border-radius:12px;padding:12px 16px;margin:0 0 16px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px}
+.case-strip strong{color:#fff}.case-strip .muted{color:#9fc9c4}
+.case-select{background:#0d4a52;border:1px solid #2a6a72;color:#fff;border-radius:8px;padding:7px 10px;min-width:180px}
+.mi-stack{display:grid;gap:14px}
+.mi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mi-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.mi-meta{font-size:11px;color:#6d8194;margin-top:8px}
+.mi-meta a{color:#0a756e;font-weight:700}
+.status-pill{display:inline-block;font-size:10px;font-weight:800;border-radius:5px;padding:3px 7px;text-transform:uppercase}
+.status-pill.sourced,.status-pill.favorable{background:#e7f7f1;color:#08766d}
+.status-pill.hypothesis,.status-pill.mixed,.status-pill.demo{background:#fff3e3;color:#a66b22}
+.status-pill.challenging,.status-pill.unavailable,.status-pill.insufficient{background:#fdeceb;color:#9b3b32}
+.strategy-opt{border:1.5px solid #dde7eb;border-radius:12px;padding:14px 14px 12px;background:#fff;cursor:pointer;text-align:left;width:100%;transition:border-color .2s,background .2s,box-shadow .2s}
+.strategy-opt:hover{border-color:#75bfb8}
+.strategy-opt.selected{border-color:#0a968a;background:#f0fbf7;box-shadow:0 0 0 2px #0a968a12}
+.strategy-opt h4{margin:0 0 4px;font-size:14px}
+.strategy-opt p{margin:0;font-size:12px;color:#5a6f82;line-height:1.45}
+.strategy-opt .mi-more{display:none;margin-top:8px;padding-top:8px;border-top:1px solid #e6eef0}
+.strategy-opt.selected .mi-more,.strategy-opt:focus-visible .mi-more{display:block}
+.brief-box{background:#edf8f5;border:1px solid #cfe8e1;border-radius:12px;padding:16px 18px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.brief-box h3{margin:0 0 8px;font-size:15px}
+.brief-box .brief-lines{margin:0;padding:0;list-style:none;font-size:13px;color:#355f5a;line-height:1.55}
+.brief-box .brief-lines li{margin:3px 0}
+.cls-box{border:1px solid #f1dfb7;background:#fffdf8;border-radius:12px;padding:14px;margin-bottom:14px}
+.task-status{border:1px solid #dbe4eb;border-radius:7px;padding:6px 8px;font-size:12px;background:#fff}
+.meeting-pack{background:#f6f9fa;border:1px solid #e6ecef;border-radius:11px;padding:12px;margin-top:10px;font-size:12px}
+.meeting-pack h4{margin:0 0 6px;font-size:12px}
+.fit-tag{font-size:10px;font-weight:800;border-radius:5px;padding:3px 7px;background:#e9f5f0;color:#08776d}
+.fit-tag.partial{background:#fff3e3;color:#a66b22}.fit-tag.more{background:#eef3f7;color:#4d6275}
+.demo-tag{font-size:9px;font-weight:800;letter-spacing:.4px;background:#eee;color:#666;border-radius:4px;padding:2px 6px}
+.mi-overview{padding:20px 22px}
+.mi-overview h2{margin:0 0 6px;font-size:18px;letter-spacing:-.3px}
+.mi-kicker{font-size:12px;color:#6d8194;margin:0 0 12px;line-height:1.5}
+.mi-list{margin:0;padding:0;list-style:none}
+.mi-list li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45;color:#3d5163}
+.mi-list li:last-child{border-bottom:0}
+.mi-list .mi-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;background:#17a18e}
+.mi-list .mi-dot.warn{background:#d98b42}.mi-list .mi-dot.muted{background:#a8b7c4}
+.mi-assess{display:grid;gap:8px}
+.mi-assess-row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}
+.mi-assess-row:last-child{border:0}
+.mi-assess-row small{display:block;color:#708294;font-size:11px;margin-top:3px;font-weight:500}
+.mi-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.mi-sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mi-sources a{font-size:12px;font-weight:700;color:#0a756e;text-decoration:none;border:1px solid #cfe8e1;background:#f7fbfa;border-radius:8px;padding:7px 10px}
+.mi-sources a:hover{background:#edf8f5}
+.mi-q{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px}
+.mi-q:last-child{border:0}
+.mi-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:4px}
+.mi-toolbar label{font-size:11px;font-weight:700;color:#6d8194}
+@media(max-width:900px){.mi-grid,.mi-cards{grid-template-columns:1fr}.brief-box{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.strategy-opt{transition:none}}
+
 </style></head><body><div class="app"><aside class="sidebar" id="sidebar"><div class="brand"><div class="logo">↗</div><div>TripBridge<small>GERMANY ↔ INDONESIA</small></div></div><div class="nav-label">WORKSPACE</div><button class="nav active" data-page="dashboard">◫ &nbsp; Overview</button><button class="nav" data-page="market">◈ &nbsp; Market intelligence</button><button class="nav" data-page="trade">▤ &nbsp; CEPA & compliance</button><button class="nav" data-page="partners">◎ &nbsp; Find partners</button><button class="nav" data-page="meetings">▦ &nbsp; Meetings</button><button class="nav" data-page="itinerary">⌁ &nbsp; Business trip planner</button><div class="nav-label">PREPARATION</div><button class="nav" data-page="readiness">✓ &nbsp; Investment readiness</button><button class="nav" data-page="culture">◇ &nbsp; Cultural intelligence</button><button class="nav" data-page="tourism">☼ &nbsp; Local experiences</button><button class="setup-link" onclick="openOnboarding(true)" aria-label="Edit onboarding preferences">⚙ &nbsp; Edit my setup ↗</button><div class="sidebottom">● Demo workspace<br>Interactive concept prototype<br><span style="color:#7dd3c7">Prepared connections. Better business.</span></div></aside><div class="main"><header class="topbar"><div style="display:flex;align-items:center;gap:12px"><button class="pill mobilemenu" id="mobilemenu">☰</button><div><div class="crumb">Workspace / <span id="crumb">Overview</span></div><strong id="topTitle">Business dashboard</strong></div></div><div class="topright"><div class="lang-switch" role="group" aria-label="Language"><button type="button" class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button><button type="button" class="lang-btn" data-lang="id" onclick="setLang('id')">ID</button><button type="button" class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button></div><select id="role" class="pill" aria-label="Switch role"><option value="german">🇩🇪 German SME / Investor</option><option value="indonesian">🇮🇩 Indonesian SME</option></select><button class="pill edit-setup" onclick="openOnboarding(true)" title="Edit workspace preferences">Edit setup</button><div class="avatar">TB</div></div></header><main class="content">
-<section class="page active" id="dashboard"><div class="hero"><div><div class="eyebrow">YOUR CROSS-BORDER BUSINESS WORKSPACE</div><h1 id="heroTitle">Your next partnership starts before the trip.</h1><p id="heroDesc">Discover promising Indonesian partners, understand trade requirements and schedule productive meetings — all in one place.</p><button class="btn secondary" onclick="go('partners')">Explore business partners →</button></div></div><div id="setupContext" class="setup-context" style="display:none"></div><div class="stats"><div class="card"><div class="stat-label">Demo partner profiles</div><div class="stat-value" id="countProfiles">6</div><div class="stat-note">Sample directory</div></div><div class="card"><div class="stat-label">Saved partners</div><div class="stat-value" id="countSaved">0</div><div class="stat-note">Your shortlist</div></div><div class="card"><div class="stat-label">Meeting requests</div><div class="stat-value" id="countMeetings">0</div><div class="stat-note">Stored in this browser</div></div><div class="card"><div class="stat-label">Preparation completed</div><div class="stat-value" id="countReady">0%</div><div class="stat-note">Readiness checklist</div></div></div><div class="sectiontitle"><h2>Your business journey</h2><span class="section-sub">Five steps to productive collaboration</span></div><div class="steps"><div class="step" onclick="go('market')"><div class="circle">1</div><strong>Discover</strong><small>Explore markets</small></div><div class="step" onclick="go('trade')"><div class="circle">2</div><strong>Prepare</strong><small>Trade & compliance</small></div><div class="step" onclick="go('partners')"><div class="circle">3</div><strong>Match</strong><small>Find & meet partners</small></div><div class="step" onclick="go('itinerary')"><div class="circle">4</div><strong>Visit</strong><small>Plan your agenda</small></div><div class="step" onclick="go('meetings')"><div class="circle">5</div><strong>Follow up</strong><small>Track next steps</small></div></div><div class="grid2" style="margin-top:20px"><div class="card"><div class="split"><h3 style="margin:0">Suggested business partners</h3><button class="btn small outline" onclick="go('partners')">View all</button></div><div id="suggested"></div></div><div class="card"><h3 style="margin:0 0 10px">Preparation checklist</h3><p class="muted" style="font-size:12px">Get ready for a meaningful first meeting.</p><div id="dashchecks"></div><button class="btn small outline" style="margin-top:15px" onclick="go('readiness')">Open full checklist →</button></div></div></section>
-<section class="page" id="market"><div class="pagehead"><h1>Market intelligence</h1><p>Explore sector opportunities and key questions before entering a new market.</p></div><div class="notice">Illustrative sector signals only — not verified market statistics or investment advice. Connect official datasets before production use.</div><div class="toolbar"><select class="field" id="marketSector"><option>Machinery & manufacturing</option><option>Food technology</option><option>Renewable energy</option><option>Packaging</option></select><select class="field" id="marketDirection"><option>Germany → Indonesia</option><option>Indonesia → Germany</option></select></div><div class="grid2"><div class="card"><div class="split"><h3 id="sectorTitle">Machinery & manufacturing</h3><span class="badge">Research starter</span></div><p id="sectorText" class="muted"></p><h4>Research priorities</h4><div id="sectorPriorities"></div></div><div class="card"><h3>Opportunity assessment</h3><p class="muted">A qualitative planning aid, not a measured market score.</p><div id="marketBars"></div></div></div><div class="sectiontitle"><h2>Trusted sources to validate</h2></div><div class="feature-grid"><div class="feature"><h3>European Commission</h3><p>Agreement texts, tariff schedules and implementation updates.</p><a href="https://policy.trade.ec.europa.eu/" target="_blank" rel="noopener">Open trade policy portal ↗</a></div><div class="feature"><h3>Eurostat</h3><p>EU trade statistics by product and partner country.</p><a href="https://ec.europa.eu/eurostat" target="_blank" rel="noopener">Open Eurostat ↗</a></div><div class="feature"><h3>Indonesia BPS</h3><p>Indonesian official economic and industry statistics.</p><a href="https://www.bps.go.id/" target="_blank" rel="noopener">Open BPS ↗</a></div></div></section>
-<section class="page" id="trade"><div class="pagehead"><h1>CEPA & compliance guide</h1><p>Prepare your trade questions, documentation and risk review.</p></div><div class="notice"><strong>Agreement status and tariffs must be checked.</strong> This demo does not determine whether IEU–CEPA is legally in force, whether a product qualifies for preferences, or what duty applies. Verify current rules with official authorities.</div><div class="grid2"><div class="card"><h3>Trade readiness checklist</h3><div id="tradechecks"></div></div><div class="card"><h3>Tariff research assistant</h3><div class="formgroup"><label>Product description</label><input id="productName" placeholder="e.g. industrial packaging machine"></div><div class="formgroup"><label>Direction</label><select id="tradeDirection"><option>Export Germany → Indonesia</option><option>Export Indonesia → Germany</option></select></div><button class="btn" onclick="tradeResult()">Generate research checklist</button><div id="tradeResult"></div></div></div><div class="sectiontitle"><h2>Important official resources</h2></div><div class="feature-grid"><div class="feature"><h3>EU Access2Markets</h3><p>Look up product-specific duties, rules of origin and requirements.</p><a href="https://trade.ec.europa.eu/access-to-markets/en/home" target="_blank" rel="noopener">Access2Markets ↗</a></div><div class="feature"><h3>European Commission</h3><p>Confirm IEU–CEPA progress and applicable legal texts.</p><a href="https://policy.trade.ec.europa.eu/" target="_blank" rel="noopener">Trade agreements ↗</a></div><div class="feature"><h3>Indonesia customs</h3><p>Review national import and customs procedures.</p><a href="https://www.beacukai.go.id/" target="_blank" rel="noopener">Customs portal ↗</a></div></div></section>
+<section class="page active" id="dashboard"><div class="hero"><div><div class="eyebrow">YOUR CROSS-BORDER BUSINESS WORKSPACE</div><h1 id="heroTitle">Your next partnership starts before the trip.</h1><p id="heroDesc">Discover promising Indonesian partners, understand trade requirements and schedule productive meetings — all in one place.</p><button class="btn secondary" onclick="go('partners')">Explore business partners →</button></div></div><div id="setupContext" class="setup-context" style="display:none"></div><div id="caseBar" class="case-bar" style="display:none"></div><div class="stats"><div class="card"><div class="stat-label">Demo partner profiles</div><div class="stat-value" id="countProfiles">6</div><div class="stat-note">Sample directory</div></div><div class="card"><div class="stat-label">Saved partners</div><div class="stat-value" id="countSaved">0</div><div class="stat-note">Your shortlist</div></div><div class="card"><div class="stat-label">Meeting requests</div><div class="stat-value" id="countMeetings">0</div><div class="stat-note">Stored in this browser</div></div><div class="card"><div class="stat-label">Preparation completed</div><div class="stat-value" id="countReady">0%</div><div class="stat-note">Readiness checklist</div></div></div><div class="sectiontitle"><h2>Your business journey</h2><span class="section-sub">Five steps to productive collaboration</span></div><div class="steps"><div class="step" onclick="go('market')"><div class="circle">1</div><strong>Discover</strong><small>Explore markets</small></div><div class="step" onclick="go('trade')"><div class="circle">2</div><strong>Prepare</strong><small>Trade & compliance</small></div><div class="step" onclick="go('partners')"><div class="circle">3</div><strong>Match</strong><small>Find & meet partners</small></div><div class="step" onclick="go('itinerary')"><div class="circle">4</div><strong>Visit</strong><small>Plan your agenda</small></div><div class="step" onclick="go('meetings')"><div class="circle">5</div><strong>Follow up</strong><small>Track next steps</small></div></div><div class="grid2" style="margin-top:20px"><div class="card"><div class="split"><h3 style="margin:0">Suggested business partners</h3><button class="btn small outline" onclick="go('partners')">View all</button></div><div id="suggested"></div></div><div class="card"><h3 style="margin:0 0 10px">Preparation checklist</h3><p class="muted" style="font-size:12px">Get ready for a meaningful first meeting.</p><div id="dashchecks"></div><button class="btn small outline" style="margin-top:15px" onclick="go('readiness')">Open full checklist →</button></div></div></section>
+<section class="page" id="market"><div id="marketCaseStrip"></div><div class="pagehead"><h1>Market intelligence</h1><p>Decide if the opportunity is worth pursuing — then choose how to enter and what to verify next.</p></div><div class="mi-toolbar"><label for="marketSector">Sector</label><select class="field" id="marketSector" aria-label="Sector"><option value="Machinery & manufacturing">Machinery & manufacturing</option><option value="Food technology">Food technology</option><option value="Renewable energy">Renewable energy</option><option value="Packaging">Packaging</option></select><label for="marketDirection">Corridor</label><select class="field" id="marketDirection" aria-label="Trade corridor"><option>Germany → Indonesia</option><option>Indonesia → Germany</option></select></div><div id="marketWorkspace" class="mi-stack"></div></section>
+<section class="page" id="trade"><div id="tradeCaseStrip"></div><div class="pagehead"><h1>CEPA & trade preparation</h1><p>Case-specific classification, requirements and open questions — not a compliance certificate.</p></div><div class="trade-frame" id="tradeFrame"><strong>IEU–CEPA legal status (as of 10 Nov 2026):</strong> Treat negotiations as concluded for research purposes, but <em>do not</em> assume signature, ratification, entry into force, or product-specific preferential tariffs are operational. Preferential rates are never calculated in this POC.</div><div class="notice" id="tradeNotice">User-marked “completed” ≠ legally verified. Preference never removes licences, standards or domestic taxes. Not legal advice.</div><div id="cepaStatusBoard"></div><div id="classificationBox" class="cls-box"></div><div class="grid2"><div class="card"><div class="split"><h3 style="margin:0" id="tradeChecksTitle">Trade readiness checklist</h3><span class="badge" id="tradeCheckBadge">Case-aware</span></div><p class="muted" id="tradeCheckLead" style="font-size:12px;margin:8px 0 0">Tasks adapt to trade vs investment path. Expand each item for business impact and partner questions.</p><div id="tradechecks" class="tcheck-list"></div><div id="tradeSummary" style="margin-top:14px"></div></div><div class="card"><h3>Classification & research</h3><div class="formgroup"><label>Product description</label><input id="productName" placeholder="e.g. industrial packaging machine"></div><div class="formgroup"><label>Product use</label><input id="productUse" placeholder="e.g. food packaging line end-of-line sealing"></div><div class="formgroup"><label>Proposed HS (if known)</label><input id="hsCodeInput" placeholder="Leave blank if unverified"></div><div class="formgroup"><label>Direction</label><select id="tradeDirection"><option>Export Germany → Indonesia</option><option>Export Indonesia → Germany</option></select></div><button class="btn" onclick="tradeResult()">Update classification research</button><div id="tradeResult"></div></div></div><div class="sectiontitle"><h2>Important official resources</h2></div><div class="feature-grid" id="tradeResources"><div class="feature"><h3>EU Access2Markets</h3><p>Look up product-specific duties, rules of origin and requirements.</p><a href="https://trade.ec.europa.eu/access-to-markets/en/home" target="_blank" rel="noopener">Access2Markets ↗</a></div><div class="feature"><h3>European Commission</h3><p>Confirm IEU–CEPA text progress, signature/conclusion status and legal texts.</p><a href="https://policy.trade.ec.europa.eu/" target="_blank" rel="noopener">Trade agreements ↗</a></div><div class="feature"><h3>INSW / INTR + DJBC</h3><p>Indonesia National Single Window / Trade Repository for BTKI HS, Lartas licences and preferential rates — plus DJBC customs procedures.</p><a href="https://www.insw.go.id/" target="_blank" rel="noopener">Open INSW ↗</a> <a href="https://www.beacukai.go.id/" target="_blank" rel="noopener" style="margin-left:10px">DJBC ↗</a></div></div></section>
 <section class="page" id="partners"><div class="toolbar"><select id="partnerSector" class="field"><option value="all">All sectors</option><option>Machinery</option><option>Food technology</option><option>Renewable energy</option><option>Packaging</option></select><select id="partnerCity" class="field"><option value="all">All cities</option><option>Jakarta</option><option>Bandung</option><option>Surabaya</option><option>Hamburg</option><option>Munich</option></select></div><div class="notice">All company profiles in this POC are fictional examples, not real verified businesses.</div><div id="companyGrid" class="companies"></div></section>
 <section class="page" id="company"><div id="companyProfile"></div></section>
 <section class="page" id="meetings"><div class="pagehead"><h1>Meeting management</h1><p>Coordinate appointments and capture follow-up actions.</p></div><div class="grid2"><div class="card"><div class="split"><h3 style="margin:0">Your meeting requests</h3><button class="btn small" onclick="go('partners')">+ Find partners</button></div><div id="meetingList"></div></div><div class="card"><h3>Why preparation matters</h3><p class="muted">A productive meeting has a clear objective, relevant documents and defined next steps.</p><div class="insight"><strong>Before the meeting</strong><br>Share an agenda, confirm attendees and prepare your questions.</div><div class="insight"><strong>After the meeting</strong><br>Record decisions, responsible contacts and the next milestone.</div></div></div></section>
@@ -122,7 +210,8 @@ body.onboarding-open{overflow:hidden}
 <section class="page" id="culture"><div class="pagehead"><h1>Cultural intelligence</h1><p>Build trust across business cultures without relying on stereotypes.</p></div><div class="feature-grid"><div class="feature"><div class="emoji">🤝</div><h3>Relationship building</h3><p>Ask your counterpart how they prefer to establish trust, introduce stakeholders and make decisions.</p></div><div class="feature"><div class="emoji">🗓</div><h3>Meeting expectations</h3><p>Agree on timing, agenda, decision makers and how schedule changes should be communicated.</p></div><div class="feature"><div class="emoji">💬</div><h3>Communication style</h3><p>Check understanding explicitly. Use concise written summaries and leave space for questions.</p></div><div class="feature"><div class="emoji">📄</div><h3>Evidence & documentation</h3><p>Share technical specifications, certifications, commercial terms and relevant references early.</p></div><div class="feature"><div class="emoji">🌐</div><h3>Language accessibility</h3><p>Confirm preferred language and whether professional interpretation is needed for legal or technical discussions.</p></div><div class="feature"><div class="emoji">⚖</div><h3>Respectful negotiation</h3><p>Avoid assuming everyone in a country negotiates alike. Clarify authority, constraints and next steps.</p></div></div></section>
 <section class="page" id="tourism"><div class="pagehead"><h1>Local experiences</h1><p>A secondary module for downtime after business meetings.</p></div><div class="feature-grid"><div class="feature"><div class="emoji">🏨</div><h3>Stay near meetings</h3><p>Compare hotels by proximity to your confirmed meeting locations.</p><span class="badge">Future integration</span></div><div class="feature"><div class="emoji">🍽</div><h3>Local dining</h3><p>Find business-friendly dining and dietary options near the agenda.</p><span class="badge">Future integration</span></div><div class="feature"><div class="emoji">🧭</div><h3>Local guides</h3><p>Arrange cultural orientation or leisure activities after business hours.</p><span class="badge">Future integration</span></div></div></section>
 <div class="footer">TripBridge concept POC · 03 November 2026 · Demo content only · Not a real marketplace, booking service or legal/trade advisory tool.</div></main></div></div>
-<div class="modalback" id="modalback"><div class="modal"><h2 id="modalTitle">Request meeting</h2><p class="muted" id="modalCompany"></p><div class="formgroup"><label>Proposed date</label><input type="date" id="meetingDate"></div><div class="formgroup"><label>Time</label><select id="meetingTime"><option>09:00</option><option>10:30</option><option>13:00</option><option>15:00</option></select></div><div class="formgroup"><label>Meeting objective</label><textarea id="meetingObjective" placeholder="e.g. Discuss distribution opportunities"></textarea></div><div class="modalfooter"><button class="btn outline" onclick="closeModal()">Cancel</button><button class="btn" onclick="submitMeeting()">Send demo request</button></div></div></div><div class="toast" id="toast"></div>
+<div class="modalback" id="modalback"><div class="modal"><h2 id="modalTitle">Request meeting</h2><p class="muted" id="modalCompany"></p><div class="formgroup"><label>Proposed date</label><input type="date" id="meetingDate"></div><div class="formgroup"><label>Time</label><select id="meetingTime"><option>09:00</option><option>10:30</option><option>13:00</option><option>15:00</option></select></div><div class="formgroup"><label>Meeting objective</label><textarea id="meetingObjective" placeholder="e.g. Discuss distribution opportunities"></textarea></div><div class="modalfooter"><button class="btn outline" onclick="closeModal()">Cancel</button><button class="btn" onclick="submitMeeting()">Send demo request</button></div></div></div><div class="modalback" id="gateback"><div class="modal" style="width:min(560px,100%)"><h2 id="gateTitle">Meeting pack</h2><p class="muted" id="gateLead"></p><div id="gateList"></div><div class="modalfooter"><button class="btn outline" id="gateFinish" onclick="goCepaFromGate()">Finish critical steps</button><button class="btn" id="gateAnyway" onclick="confirmMeetingAnyway()">Request anyway</button></div></div></div>
+<div class="toast" id="toast"></div>
 
 <!-- Guided first-run onboarding; local prototype, no account or data transmission -->
 <div id="onboarding" aria-hidden="true">
@@ -159,6 +248,7 @@ body.onboarding-open{overflow:hidden}
 </div>
 
 <script src="i18n.js"></script>
+<script src="case-engine.js"></script>
 <script>
 const companies=[
 {id:1,name:'Nusantara Precision Works',city:'Jakarta',country:'Indonesia',sector:'Machinery',type:'Manufacturing partner',desc:'Precision components and industrial fabrication for regional supply chains.',initials:'NP',founded:2012,employees:'85–120',languages:['Bahasa Indonesia','English'],exportYears:7,readiness:78,cepaFocus:'Rules of origin & EU technical standards',lookingFor:'German OEM or distributor for precision metal parts',valueProp:'CNC and fabrication capacity for mid-volume industrial components with documented quality checks.',problem:'European buyers need reliable ASEAN suppliers that can meet dimensional tolerances and delivery discipline.',audience:'Machine builders, industrial importers and maintenance contractors',markets:['ASEAN','Middle East','Exploring EU'],channels:['Trade fairs','Direct B2B','AHK referrals'],certs:['ISO 9001','SNI process docs','Material traceability'],capacity:'2 production lines · prototype to series','response':'2–4 business days',activity:[42,48,45,55,61,58,66,72,69,74,78,81],activityLabel:'Export enquiry index',activityDelta:'+18%'},
@@ -166,17 +256,126 @@ const companies=[
 {id:3,name:'Surya Food Systems',city:'Surabaya',country:'Indonesia',sector:'Food technology',type:'Distribution partner',desc:'Food processing equipment and regional distribution services.',initials:'SF',founded:2008,employees:'120–180',languages:['Bahasa Indonesia','English','Mandarin'],exportYears:11,readiness:84,cepaFocus:'Food safety, labeling & cold-chain documentation',lookingFor:'German food-tech equipment and co-packing partners',valueProp:'Regional distribution plus processing know-how for packaged foods entering Eastern Indonesia.',problem:'Exporters struggle with last-mile cold chain and local retailer requirements.',audience:'Food brands, importers and processing plants',markets:['Indonesia','Malaysia','Export prep EU'],channels:['Distributor network','Food expos','Buyer missions'],certs:['HACCP','Halal','ISO 22000'],capacity:'Cold storage hubs · East Java network','response':'Same week',activity:[55,57,60,62,65,63,68,71,74,76,79,83],activityLabel:'Trade readiness pulse',activityDelta:'+12%'},
 {id:4,name:'Jakarta Pack Solutions',city:'Jakarta',country:'Indonesia',sector:'Packaging',type:'Supplier',desc:'Industrial packaging and sustainable material solutions.',initials:'JP',founded:2014,employees:'60–90',languages:['Bahasa Indonesia','English'],exportYears:5,readiness:69,cepaFocus:'Packaging waste rules & material declarations',lookingFor:'German brands needing ASEAN packaging supply or design partners',valueProp:'Industrial packaging with a growing portfolio of recyclable and lighter materials.',problem:'Importers need packaging that survives tropical logistics without excess plastic.',audience:'FMCG, industrial goods and e-commerce shippers',markets:['Greater Jakarta','Java','Export samples'],channels:['RFQs','Packaging trade shows','Referrals'],certs:['ISO 9001','Recycled-content specs'],capacity:'Custom runs · sample lab','response':'2–5 business days',activity:[28,31,35,40,38,44,47,50,53,56,59,63],activityLabel:'Buyer shortlist mentions',activityDelta:'+15%'},
 {id:5,name:'Elbe Industrial Systems',city:'Hamburg',country:'Germany',sector:'Machinery',type:'Technology supplier',desc:'Industrial automation systems seeking international channel partners.',initials:'EI',founded:1999,employees:'140–200',languages:['German','English'],exportYears:18,readiness:88,cepaFocus:'CE marking, spare-parts logistics & local service models',lookingFor:'Indonesian distributors and system integrators',valueProp:'Automation lines and control systems with training and after-sales packages for emerging markets.',problem:'Indonesian factories need partners who can support commissioning and spare parts locally.',audience:'Manufacturers upgrading production lines',markets:['EU','Turkey','Seeking Indonesia'],channels:['Hannover Messe','Distributor search','EKONID'],certs:['CE','ISO 9001','Machinery Directive docs'],capacity:'Modular lines · remote diagnostics','response':'1–2 business days',activity:[60,62,65,68,70,72,74,76,78,80,82,85],activityLabel:'Channel partner score',activityDelta:'+9%'},
-{id:6,name:'Bavaria Clean Process',city:'Munich',country:'Germany',sector:'Renewable energy',type:'Technology partner',desc:'Energy-efficient process equipment and engineering services.',initials:'BC',founded:2005,employees:'70–110',languages:['German','English'],exportYears:14,readiness:86,cepaFocus:'Energy project procurement & technical conformity',lookingFor:'Indonesian EPC and industrial energy partners',valueProp:'Heat-recovery and process efficiency equipment for mid-size industrial plants.',problem:'Plants need bankable efficiency upgrades with clear ROI documentation.',audience:'Industrial owners, engineering firms and green project developers',markets:['DACH','Central Europe','ASEAN exploration'],channels:['Engineering tenders','AHK Indonesia','Pilots'],certs:['CE','ISO 50001 advisory experience'],capacity:'Engineering + equipment packages','response':'2–3 business days',activity:[48,50,53,55,58,61,64,67,70,73,75,79],activityLabel:'Project fit index',activityDelta:'+14%'}
+{id:6,name:'Bavaria Clean Process',city:'Munich',country:'Germany',sector:'Renewable energy',type:'Technology partner',desc:'Energy-efficient process equipment and engineering services.',initials:'BC',founded:2005,employees:'70–110',languages:['German','English'],exportYears:14,readiness:86,cepaFocus:'Energy project procurement & technical conformity',lookingFor:'Indonesian EPC and industrial energy partners',valueProp:'Heat-recovery and process efficiency equipment for mid-size industrial plants.',problem:'Plants need bankable efficiency upgrades with clear ROI documentation.',audience:'Industrial owners, engineering firms and green project developers',markets:['DACH','Central Europe','ASEAN exploration'],channels:['Engineering tenders','AHK Indonesia','Pilots'],certs:['CE','ISO 50001 advisory experience'],capacity:'Engineering + equipment packages','response':'2–3 business days',activity:[48,50,53,55,58,61,64,67,70,73,75,79],activityLabel:'Project fit index',activityDelta:'+14%'},
+{id:7,name:'Jakarta PackServe Distribusi',city:'Jakarta',country:'Indonesia',sector:'Packaging',type:'Distribution partner',desc:'Fictional distributor of industrial packaging machinery with installation, commissioning and after-sales service in Greater Jakarta.',initials:'JD',founded:2011,employees:'45–70',languages:['Bahasa Indonesia','English'],exportYears:9,readiness:76,cepaFocus:'Importer-of-record capability & machinery import licences',lookingFor:'European packaging-machinery principals seeking Jakarta distribution',valueProp:'Sales plus installation, spare parts and after-sales technicians for industrial packaging lines.',problem:'Foreign OEMs need a local partner who can import, install and service capital equipment.',audience:'Food processors, contract packers and industrial converters',markets:['Greater Jakarta','West Java'],channels:['Factory visits','Trade shows','AHK referrals'],certs:['ISO 9001 (claimed)','Service SLA templates'],capacity:'Installation crews · spare-parts stock','response':'2–4 business days',activity:[40,44,48,52,55,58,62,65,68,70,73,77],activityLabel:'Distributor interest index',activityDelta:'+16%',capabilities:['installation','after-sales','maintenance','import'],fictional:true},
+{id:8,name:'Berlin Industrial Packaging GmbH',city:'Berlin',country:'Germany',sector:'Packaging',type:'Technology supplier',desc:'Fictional German maker of industrial packaging machinery exploring ASEAN distribution.',initials:'BP',founded:2001,employees:'55–70',languages:['German','English'],exportYears:16,readiness:82,cepaFocus:'HS classification, origin evidence & importer duties',lookingFor:'Indonesian distributors with installation and after-sales capacity',valueProp:'End-of-line packaging machinery with training and spare-parts programmes.',problem:'Need local partners who can clear imports and support machines after sale.',audience:'Food and industrial packaging plants',markets:['EU','Turkey','Exploring Indonesia'],channels:['Trade fairs','Distributor search','EKONID'],certs:['CE','ISO 9001','Machinery docs'],capacity:'Modular lines · remote support','response':'1–2 business days',activity:[50,52,55,58,60,63,66,68,71,74,76,80],activityLabel:'Export pipeline score',activityDelta:'+11%',capabilities:['manufacturing','training','spare-parts'],fictional:true}
 ];
 let activeCompanyId=null;let currentPage='dashboard';
 const checklistKeys=['check1','check2','check3','check4','check5','check6'];
-const tradeChecklistKeys=['tcheck1','tcheck2','tcheck3','tcheck4','tcheck5','tcheck6'];
+const tradeChecklistItems=[
+ {key:'tcheck1',sev:'mandatory',clause:'Ch. 2 · Annex 2-A / App. 2-A-1 & 2-A-2'},
+ {key:'tcheck2',sev:'critical',clause:'Ch. 2 Art. 2.5 · Ch. 25 (Entry into Force)'},
+ {key:'tcheck3',sev:'mandatory',clause:'Ch. 3 Art. 3.2 / 3.6 · Annex 3-B / 3-C'},
+ {key:'tcheck4',sev:'blocking',clause:'Ch. 2 Art. 2.12 · Ch. 6 SPS · Ch. 7 TBT'},
+ {key:'tcheck5',sev:'mandatory',clause:'Ch. 2 Art. 2.4 / 2.7 · Ch. 4 Customs'},
+ {key:'tcheck6',sev:'recommended',clause:'Ch. 3 Section B · Art. 2.15 preferential management'},
+ {key:'tcheck7',sev:'critical',clause:'Ch. 3 Direct Transport / Non-Alteration · Art. 2.10'},
+ {key:'tcheck8',sev:'critical',clause:'Ch. 3 Section B · Annex 3-C Statement on Origin / REX'},
+ {key:'tcheck9',sev:'recommended',clause:'Ch. 5 Trade Remedies Art. 5.1–5.20'},
+ {key:'tcheck10',sev:'recommended',clause:'Ch. 3 Section B record-keeping · 3–5 years'}
+];
+
+function ensureCase(){
+ const p=state.profile||{};
+ const defaults={product:'',directionIndex:state.role==='indonesian'?1:0,partnerId:null,sector:p.sector||null,targetCity:p.targetCity||'all',started:false};
+ state.case={...defaults,...(state.case||{})};
+ if(state.case.directionIndex!==0&&state.case.directionIndex!==1)state.case.directionIndex=defaults.directionIndex;
+ return state.case;
+}
+function criticalTradeOpen(){
+ return tradeChecklistItems.map((item,i)=>({...item,i})).filter(item=>['mandatory','critical','blocking'].includes(item.sev)&&!state.tradechecks.includes(item.i));
+}
+function cepaStats(){
+ const total=tradeChecklistItems.length,done=state.tradechecks.filter(i=>i>=0&&i<total).length;
+ const open=criticalTradeOpen();
+ return{total,done,pct:Math.round(done/total*100),open};
+}
+function caseSectorLabel(){
+ const c=ensureCase();
+ return c.sector?sectorLabel(c.sector):t('all_sectors_label');
+}
+function casePartner(){
+ const c=ensureCase();
+ return c.partnerId?companies.find(x=>x.id===c.partnerId):null;
+}
+function caseDirectionText(){
+ return ensureCase().directionIndex===0?t('dir_gi'):t('dir_ig');
+}
+function syncCaseToTradeForm(){
+ const c=ensureCase();
+ if(c.product)byId('productName').value=c.product;
+ byId('tradeDirection').selectedIndex=c.directionIndex;
+}
+function startOrOpenCase(opts={}){
+ const c=ensureCase();
+ if(opts.partnerId!=null)c.partnerId=opts.partnerId;
+ if(opts.product!=null)c.product=opts.product;
+ if(opts.directionIndex!=null)c.directionIndex=opts.directionIndex;
+ if(opts.sector!=null)c.sector=opts.sector;
+ c.started=true;
+ persist();
+ syncCaseToTradeForm();
+ go('trade');
+ renderTradeCaseStrip();
+ if(c.product)tradeResult();
+}
+function openCepaForPartner(id){
+ const company=companies.find(x=>x.id===id);
+ const map={'Machinery':'Machinery & manufacturing','Food technology':'Food technology','Renewable energy':'Renewable energy','Packaging':'Packaging'};
+ const productHint=company?(company.sector+' · '+company.name):'';
+ startOrOpenCase({partnerId:id,sector:company?.sector||ensureCase().sector,product:ensureCase().product||productHint,directionIndex:state.role==='indonesian'?1:0});
+ toast(t('toast_case_partner'));
+}
+function openCepaFromMarket(){
+ const sectorVal=byId('marketSector').value;
+ const short=Object.entries({'Machinery & manufacturing':'Machinery','Food technology':'Food technology','Renewable energy':'Renewable energy','Packaging':'Packaging'}).find(([k])=>k===sectorVal)?.[1]||null;
+ startOrOpenCase({sector:short,directionIndex:byId('marketDirection').selectedIndex,product:ensureCase().product||sectorVal});
+ toast(t('toast_case_started'));
+}
+function renderCaseBar(){
+ const node=byId('caseBar');if(!node)return;
+ const c=ensureCase();const stats=cepaStats();const partner=casePartner();
+ if(!state.onboardingComplete&&!c.started){node.style.display='none';return}
+ node.style.display='flex';
+ const partnerTxt=partner?partner.name:t('case_no_partner');
+ node.innerHTML=`<div><span class="case-chip">${t('case_label')}</span><h3>${t('case_title')}</h3>
+ <p>${safe(caseSectorLabel())} · ${safe(caseDirectionText())} · ${safe(partnerTxt)}${c.product?' · '+safe(c.product):''}</p>
+ <div class="case-progress"><div class="bar"><span style="width:${stats.pct}%"></span></div><strong>${stats.done}/${stats.total}</strong><span class="muted" style="color:#9fd3cc">${t('case_critical_open',{n:stats.open.length})}</span></div></div>
+ <div class="case-actions">
+  <button class="btn secondary" onclick="go('trade')">${t('case_open_cepa')}</button>
+  <button class="btn outline" style="background:transparent;color:#fff;border-color:#ffffff55" onclick="go('partners')">${t('case_find_partners')}</button>
+ </div>`;
+}
+function renderTradeCaseStrip(){
+ const node=byId('tradeCaseStrip');if(!node)return;
+ const c=ensureCase();const stats=cepaStats();const partner=casePartner();
+ node.innerHTML=`<div class="case-bar" style="margin-bottom:14px"><div><span class="case-chip">${t('case_label')}</span><h3>${t('trade_case_h')}</h3>
+ <p>${partner?t('trade_case_with',{name:partner.name}):t('trade_case_generic')} · ${safe(caseDirectionText())}</p>
+ <div class="case-progress"><div class="bar"><span style="width:${stats.pct}%"></span></div><strong>${stats.done}/${stats.total} ${t('case_done')}</strong></div></div>
+ <div class="case-actions"><button class="btn secondary" onclick="go('partners')">${t('case_find_partners')}</button>${partner?`<button class="btn outline" style="background:transparent;color:#fff;border-color:#ffffff55" onclick="openCompany(${partner.id})">${t('case_view_partner')}</button>`:''}</div></div>`;
+}
+function renderMarketCaseCta(){
+ const node=byId('marketCaseCta')||byId('marketCaseStrip');if(!node||!byId('marketCaseCta'))return;
+ node.innerHTML=`<div class="card" style="display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap"><div><strong>${t('market_cta_title')}</strong><p class="muted" style="margin:6px 0 0;font-size:12px">${t('market_cta_p')}</p></div><button class="btn" onclick="openCepaFromMarket()">${t('market_cta_btn')}</button></div>`;
+}
+function companyCepaGapsHtml(company){
+ const open=criticalTradeOpen().slice(0,3);
+ const linked=ensureCase().partnerId===company.id;
+ return `<div class="case-gap"><strong>${t('company_cepa_title')}</strong>
+ <p style="margin:6px 0 0">${linked?t('company_cepa_linked'):t('company_cepa_hint',{focus:company.cepaFocus})}</p>
+ ${open.length?`<ul>${open.map(o=>`<li>${t(o.key)}</li>`).join('')}</ul>`:`<p style="margin:8px 0 0">${t('company_cepa_clear')}</p>`}
+ <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+  <button class="btn small" onclick="openCepaForPartner(${company.id})">${t('company_cepa_cta')}</button>
+  <button class="btn small outline" onclick="go('trade')">${t('case_open_cepa')}</button>
+ </div></div>`;
+}
+
 const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let state;try{state=JSON.parse(localStorage.getItem('tripbridge-poc-v1'))||{}}catch(e){state={}}
-state={saved:[],meetings:[],checks:[],tradechecks:[],role:'german',lang:'en',...state};
+state={saved:[],meetings:[],checks:[],tradechecks:[],role:'german',lang:'en',case:null,...state};
 if(!['en','de','id'].includes(state.lang))state.lang='en';
 window.state=state;
-const persist=()=>localStorage.setItem('tripbridge-poc-v1',JSON.stringify(state));
+var persist=()=>localStorage.setItem('tripbridge-poc-v1',JSON.stringify(state));
 const byId=id=>document.getElementById(id);
 function toast(s){let el=byId('toast');el.textContent=s;el.style.display='block';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.style.display='none',3200)}
 function pageTitle(p){return t('title_'+p)}
@@ -217,27 +416,34 @@ function applyStaticI18n(){
  document.querySelectorAll('#dashboard .grid2 > .card')[1].querySelector('.btn').textContent=t('open_checklist');
  const setHead=(id,h,p)=>{const el=byId(id);el.querySelector('.pagehead h1').textContent=t(h);el.querySelector('.pagehead p').textContent=t(p)};
  setHead('market','market_h1','market_p');setHead('trade','trade_h1','trade_p');setHead('meetings','meetings_h1','meetings_p');setHead('itinerary','itinerary_h1','itinerary_p');setHead('culture','culture_h1','culture_p');setHead('tourism','tourism_h1','tourism_p');
- byId('market').querySelector('.notice').textContent=t('market_notice');
- byId('market').querySelector('.badge').textContent=t('badge_research');
- byId('market').querySelector('h4').textContent=t('research_priorities');
- byId('market').querySelectorAll('.card h3')[1].textContent=t('opp_assess');
- byId('market').querySelectorAll('.card .muted')[0].textContent=t('opp_assess_p');
- byId('market').querySelector('.sectiontitle h2').textContent=t('trusted');
+ const marketNotice=byId('market').querySelector('.notice');if(marketNotice)marketNotice.textContent=t('market_notice');
+ const marketTrusted=byId('market').querySelector('.sectiontitle h2');if(marketTrusted)marketTrusted.textContent=t('trusted');
  const ms=byId('marketSector');const msv=ms.value||'Machinery & manufacturing';
  ms.innerHTML=`<option value="Machinery & manufacturing">${t('sector_mach_full')}</option><option value="Food technology">${t('sector_food')}</option><option value="Renewable energy">${t('sector_renew')}</option><option value="Packaging">${t('sector_pack')}</option>`;
  ms.value=msv;
  const md=byId('marketDirection');const mdv=md.selectedIndex;
  md.innerHTML=`<option>${t('dir_gi')}</option><option>${t('dir_ig')}</option>`;md.selectedIndex=mdv;
- byId('trade').querySelector('.notice').textContent=t('trade_notice');
- byId('trade').querySelectorAll('.card h3')[0].textContent=t('trade_checks');
- byId('trade').querySelectorAll('.card h3')[1].textContent=t('tariff_assistant');
- byId('trade').querySelectorAll('.formgroup label')[0].textContent=t('product_desc');
+ byId('tradeFrame').innerHTML=`<strong>${t('trade_frame_title')}</strong> ${t('trade_frame_body')}`;
+ byId('tradeNotice').textContent=t('trade_notice');
+ const tradeH3=byId('trade').querySelectorAll('.card h3');
+ if(tradeH3[0])tradeH3[0].textContent=t('trade_checks');
+ byId('tradeCheckBadge').textContent=t('trade_badge');
+ byId('tradeCheckLead').textContent=t('trade_check_lead');
+ if(tradeH3[1])tradeH3[1].textContent=t('tariff_assistant');
+ const tlabels=byId('trade').querySelectorAll('.formgroup label');
+ if(tlabels[0])tlabels[0].textContent=t('product_desc');
  byId('productName').placeholder=t('product_ph');
- byId('trade').querySelectorAll('.formgroup label')[1].textContent=t('direction');
+ if(tlabels[tlabels.length-1])tlabels[tlabels.length-1].textContent=t('direction');
  const td=byId('tradeDirection');const tdi=td.selectedIndex;
  td.innerHTML=`<option>${t('exp_gi')}</option><option>${t('exp_ig')}</option>`;td.selectedIndex=tdi;
- byId('trade').querySelector('.btn').textContent=t('gen_checklist');
+ const tradeBtn=byId('trade').querySelector('.card .btn');
+ if(tradeBtn)tradeBtn.textContent=t('gen_checklist');
  byId('trade').querySelector('.sectiontitle h2').textContent=t('official_res');
+ const tres=byId('tradeResources').querySelectorAll('.feature');
+ tres[0].querySelector('h3').textContent=t('res_a2m_h');tres[0].querySelector('p').textContent=t('res_a2m_p');tres[0].querySelector('a').textContent=t('res_a2m_a');
+ tres[1].querySelector('h3').textContent=t('res_ec_h');tres[1].querySelector('p').textContent=t('res_ec_p');tres[1].querySelector('a').textContent=t('res_ec_a');
+ tres[2].querySelector('h3').textContent=t('res_insw_h');tres[2].querySelector('p').textContent=t('res_insw_p');
+ const inswLinks=tres[2].querySelectorAll('a');inswLinks[0].textContent=t('res_insw_a');inswLinks[1].textContent=t('res_djbc_a');
  byId('partners').querySelector('.notice').textContent=t('partners_notice');
  const ps=byId('partnerSector');const psv=ps.value;
  ps.innerHTML=`<option value="all">${t('all_sectors')}</option><option value="Machinery">${t('sector_mach')}</option><option value="Food technology">${t('sector_food')}</option><option value="Renewable energy">${t('sector_renew')}</option><option value="Packaging">${t('sector_pack')}</option>`;
@@ -289,9 +495,20 @@ function applyStaticI18n(){
  else{byId('crumb').textContent=pageTitle(currentPage);byId('topTitle').textContent=pageTitle(currentPage)}
  document.querySelector('.crumb').childNodes[0].textContent=t('crumb_workspace');
 }
-function go(p){if(p!=='company')activeCompanyId=null;currentPage=p;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===(p==='company'?'partners':p)));byId('crumb').textContent=p==='company'?t('crumb_profile'):pageTitle(p);byId('topTitle').textContent=p==='company'?(companies.find(c=>c.id===activeCompanyId)?.name||t('title_company')):pageTitle(p);byId('sidebar').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});if(p==='company')renderCompanyProfile();else render()};document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>go(b.dataset.page));byId('mobilemenu').onclick=()=>byId('sidebar').classList.toggle('open');byId('role').value=state.role;byId('role').onchange=e=>{state.role=e.target.value;state.profile={...(state.profile||{}),role:state.role,goal:null,targetCity:'all'};persist();syncOnboardingPreferences();render();toast(t('toast_role'))};
+function go(p){if(p!=='company')activeCompanyId=null;currentPage=p;document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===(p==='company'?'partners':p)));byId('crumb').textContent=p==='company'?t('crumb_profile'):pageTitle(p);byId('topTitle').textContent=p==='company'?(companies.find(c=>c.id===activeCompanyId)?.name||t('title_company')):pageTitle(p);byId('sidebar').classList.remove('open');window.scrollTo({top:0,behavior:'smooth'});if(p==='trade'){ensureCase();syncCaseToTradeForm();render();} if(p==='company')renderCompanyProfile();else if(p!=='trade')render(); if(p==='trade'){renderTradeCaseStrip();renderChecks();} };document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>go(b.dataset.page));byId('mobilemenu').onclick=()=>byId('sidebar').classList.toggle('open');byId('role').value=state.role;byId('role').onchange=e=>{state.role=e.target.value;state.profile={...(state.profile||{}),role:state.role,goal:null,targetCity:'all'};ensureCase();state.case.partnerId=null;state.case.directionIndex=state.role==='indonesian'?1:0;persist();syncOnboardingPreferences();render();toast(t('toast_role'))};
 function render(){const ind=state.role==='indonesian';byId('heroTitle').textContent=ind?t('hero_id'):t('hero_de');byId('heroDesc').textContent=ind?t('heroDesc_id'):t('heroDesc_de');byId('countSaved').textContent=state.saved.length;byId('countMeetings').textContent=state.meetings.length;byId('countReady').textContent=Math.round(state.checks.length/checklistKeys.length*100)+'%';byId('readinessTitle').textContent=ind?t('ready_id'):t('ready_de');byId('readinessDesc').textContent=ind?t('readyDesc_id'):t('readyDesc_de');let rec=companies.filter(c=>c.country===(ind?'Germany':'Indonesia')).sort((a,b)=>Number(b.sector===(state.profile?.sector||''))-Number(a.sector===(state.profile?.sector||''))||Number(b.city===(state.profile?.targetCity||''))-Number(a.city===(state.profile?.targetCity||''))).slice(0,3);byId('suggested').innerHTML=rec.map(c=>`<div class="company"><div class="company-logo">${c.initials}</div><div class="info"><strong>${c.name}</strong><small>${sectorLabel(c.sector)} · ${c.city}</small></div><button class="btn small outline" onclick="openCompany(${c.id})">${t('view_profile')}</button></div>`).join('');byId('dashchecks').innerHTML=checklistKeys.slice(0,4).map((k,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${t(k)}</span></label>`).join('');renderChecks();renderPartners();renderMeetings();renderMarket()}
-function toggleCheck(i,v,trade=false){let key=trade?'tradechecks':'checks';state[key]=v?[...new Set([...state[key],i])]:state[key].filter(x=>x!==i);persist();render()}function renderChecks(){let p=Math.round(state.checks.length/checklistKeys.length*100);byId('readyPercent').textContent=p+'%';byId('readyBar').style.width=p+'%';byId('readychecks').innerHTML=checklistKeys.map((k,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${t(k)}</span></label>`).join('');byId('tradechecks').innerHTML=tradeChecklistKeys.map((k,i)=>`<label class="check"><input type="checkbox" ${state.tradechecks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked,true)"><span>${t(k)}</span></label>`).join('')}
+function toggleCheck(i,v,trade=false){let key=trade?'tradechecks':'checks';state[key]=v?[...new Set([...state[key],i])]:state[key].filter(x=>x!==i);persist();render()}
+function toggleTradeWhy(i){const el=document.querySelector(`.tcheck-item[data-i="${i}"]`);if(el)el.classList.toggle('open')}
+function renderChecks(){let p=Math.round(state.checks.length/checklistKeys.length*100);byId('readyPercent').textContent=p+'%';byId('readyBar').style.width=p+'%';byId('readychecks').innerHTML=checklistKeys.map((k,i)=>`<label class="check"><input type="checkbox" ${state.checks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked)"><span>${t(k)}</span></label>`).join('');
+ byId('tradechecks').innerHTML=tradeChecklistItems.map((item,i)=>{
+  const open=document.querySelector(`.tcheck-item[data-i="${i}"]`)?.classList.contains('open');
+  return `<div class="tcheck-item ${item.sev==='blocking'?'blocking':''} ${open?'open':''}" data-i="${i}">
+   <div class="tcheck-row"><input type="checkbox" ${state.tradechecks.includes(i)?'checked':''} onchange="toggleCheck(${i},this.checked,true)" aria-label="${safe(t(item.key))}">
+    <div class="tcheck-main"><div class="tcheck-title"><span>${t(item.key)}</span><span class="tcheck-sev ${item.sev}">${t('sev_'+item.sev)}</span></div>
+    <div class="tcheck-clause">${safe(item.clause)}</div>
+    <button type="button" class="tcheck-toggle" onclick="toggleTradeWhy(${i})">${t('why_this_matters')} ▾</button></div></div>
+   <div class="tcheck-why">${t(item.key+'_why')}</div></div>`;
+ }).join('')}
 function renderPartners(){let sec=byId('partnerSector').value,city=byId('partnerCity').value;let rows=companies.filter(c=>c.country===(state.role==='indonesian'?'Germany':'Indonesia')&&(sec==='all'||c.sector===sec)&&(city==='all'||c.city===city));byId('companyGrid').innerHTML=rows.length?rows.map(c=>`<div class="card companycard" onclick="openCompany(${c.id})" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openCompany(${c.id})"><div class="company"><div class="company-logo">${c.initials}</div><div class="info"><strong>${c.name}</strong><small>${c.city}, ${countryLabel(c.country)}</small></div></div><span class="tag">${sectorLabel(c.sector)}</span><p>${c.desc}</p><div class="metricrow"><span>${t('partner_type')}<br><b>${c.type}</b></span><span>${t('readiness')}<br><b>${c.readiness}%</b></span></div><div class="bottom" onclick="event.stopPropagation()"><button class="btn small outline" onclick="toggleSave(${c.id})">${state.saved.includes(c.id)?t('saved'):t('save_partner')}</button><button class="btn small" onclick="openCompany(${c.id})">${t('view_entreprise')}</button></div></div>`).join(''):`<div class="empty">${t('no_profiles')}</div>`}['partnerSector','partnerCity'].forEach(id=>byId(id).addEventListener('input',renderPartners));function toggleSave(id){state.saved=state.saved.includes(id)?state.saved.filter(x=>x!==id):[...state.saved,id];persist();if(activeCompanyId===id)renderCompanyProfile();else render();toast(state.saved.includes(id)?t('toast_saved'):t('toast_unsaved'))}
 function openCompany(id){activeCompanyId=id;go('company')}
 function chartPath(values,w,h,pad){const min=Math.min(...values)*.85,max=Math.max(...values)*1.05,span=max-min||1;const pts=values.map((v,i)=>{const x=pad+(i/(values.length-1))*(w-pad*2);const y=h-pad-((v-min)/span)*(h-pad*2);return[x,y]});const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');const area=line+` L${pts[pts.length-1][0].toFixed(1)},${h-pad} L${pts[0][0].toFixed(1)},${h-pad} Z`;return{line,area,last:values[values.length-1]}}
@@ -309,10 +526,12 @@ function renderCompanyProfile(){
   </div></div>
   <div class="cp-actions">
    <button class="btn outline" onclick="toggleSave(${c.id})">${saved?t('saved'):t('save_partner')}</button>
+   <button class="btn outline" onclick="openCepaForPartner(${c.id})">${t('company_cepa_cta')}</button>
    <button class="btn" onclick="openMeeting(${c.id})">${t('request_meeting')}</button>
   </div>
  </div>
  <p class="cp-lead">${safe(c.desc)} ${t('looking_for')} <strong>${safe(c.lookingFor)}</strong></p>
+ ${companyCepaGapsHtml(c)}
  <div class="cp-stats">
   <div class="card cp-stat"><div class="stat-label">${t('readiness_label')}</div><div class="stat-value">${c.readiness}%</div><div class="stat-note">${t('readiness_note')}</div></div>
   <div class="card cp-stat"><div class="stat-label">${t('export_exp')}</div><div class="stat-value">${c.exportYears} ${t('yrs')}</div><div class="stat-note">${t('export_note')}</div></div>
@@ -342,10 +561,29 @@ function renderCompanyProfile(){
  </div>
  <div class="notice" style="margin-top:16px">${t('profile_notice')}</div>`;
 }
-let meetingCompany=null;function openMeeting(id){meetingCompany=id;let c=companies.find(x=>x.id===id);byId('modalCompany').textContent=c.name+' · '+c.city;byId('meetingDate').min=new Date().toISOString().slice(0,10);byId('meetingDate').value='';byId('meetingObjective').value='';byId('modalback').classList.add('show')}function closeModal(){byId('modalback').classList.remove('show')}byId('modalback').onclick=e=>{if(e.target===byId('modalback'))closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});function submitMeeting(){let date=byId('meetingDate').value;if(!date||date<new Date().toISOString().slice(0,10)){toast(t('toast_date'));return}let obj=byId('meetingObjective').value.trim();if(!obj){toast(t('toast_obj'));return}state.meetings.push({id:Date.now(),companyId:meetingCompany,date,time:byId('meetingTime').value,objective:obj,status:'Requested',notes:''});persist();closeModal();go('meetings');toast(t('toast_meeting'))}
-function renderMeetings(){byId('meetingList').innerHTML=state.meetings.length?state.meetings.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(m=>{let c=companies.find(x=>x.id===m.companyId);return `<div class="listrow"><div><strong>${safe(c?.name||'Company')}</strong><small>${safe(m.date)} at ${safe(m.time)} · ${safe(c?.city||'')}</small><div style="font-size:12px;margin-top:5px">${safe(m.objective)}</div><span class="tag amber">${m.status==='Requested'?t('status_requested'):safe(m.status)}</span>${m.notes?`<p style="font-size:12px">${t('follow_up_label')} ${safe(m.notes)}</p>`:''}</div><div style="display:grid;gap:7px"><button class="btn small outline" onclick="addNote(${m.id})">${t('follow_up')}</button><button class="btn small outline" onclick="deleteMeeting(${m.id})">${t('remove')}</button></div></div>`}).join(''):`<div class="empty">${t('no_meetings')}</div>`}function addNote(id){let m=state.meetings.find(x=>x.id===id);let note=prompt(t('follow_up')+':',m.notes||'');if(note!==null){m.notes=note.slice(0,2000);persist();renderMeetings();toast(t('toast_follow'))}}function deleteMeeting(id){if(confirm(t('confirm_remove'))){state.meetings=state.meetings.filter(m=>m.id!==id);persist();render()}}
-const sectorMeta={'Machinery & manufacturing':{desc:'mdesc_mach',tasks:['mtask_mach1','mtask_mach2','mtask_mach3'],bars:[72,55,82]},'Food technology':{desc:'mdesc_food',tasks:['mtask_food1','mtask_food2','mtask_food3'],bars:[65,75,61]},'Renewable energy':{desc:'mdesc_renew',tasks:['mtask_renew1','mtask_renew2','mtask_renew3'],bars:[79,48,72]},'Packaging':{desc:'mdesc_pack',tasks:['mtask_pack1','mtask_pack2','mtask_pack3'],bars:[68,67,74]}};function renderMarket(){let sector=byId('marketSector').value,d=sectorMeta[sector];byId('sectorTitle').textContent=sectorLabel(sector);byId('sectorText').textContent=t(d.desc);byId('sectorPriorities').innerHTML=d.tasks.map(k=>`<div class="check">✓ &nbsp; ${t(k)}</div>`).join('');byId('marketBars').innerHTML=['bar1','bar2','bar3'].map((k,i)=>`<div class="split"><span>${t(k)}</span><small class="muted">${t('illustrative')}</small></div><div class="bar"><span style="width:${d.bars[i]}%"></span></div>`).join('')}byId('marketSector').onchange=renderMarket;byId('marketDirection').onchange=()=>toast(t('toast_market'));function tradeResult(){let name=byId('productName').value.trim();if(!name){toast(t('toast_product'));return}byId('tradeResult').innerHTML=`<div class="insight"><strong>${t('research_plan')} ${safe(name)}</strong><p>${t('trade_steps')}</p><small>${t('no_tariff')}</small></div>`}
-function makeTrip(){let date=byId('tripDate').value;if(!date){toast(t('toast_trip'));return}let days=Number(byId('tripDays').value),city=byId('tripCity').value;let ms=state.meetings.filter(m=>companies.find(c=>c.id===m.companyId)?.city===city);let html='';for(let i=0;i<days;i++){let d=new Date(date+'T12:00:00');d.setDate(d.getDate()+i);let day=d.toISOString().slice(0,10);let matches=ms.filter(m=>m.date===day);html+=`<h4>${t('day')} ${i+1} · ${day}</h4><div class="timeline"><div class="event"><small>09:00</small><strong>${t('review_obj')}</strong><small>${t('prepare_docs')}</small></div>${matches.map(m=>`<div class="event"><small>${safe(m.time)}</small><strong>${safe(companies.find(c=>c.id===m.companyId)?.name)}</strong><small>${t('requested_nc')} ${safe(m.objective)}</small></div>`).join('')}${matches.length?'':`<div class="event"><small>${t('to_arrange')}</small><strong>${t('partner_slots')}</strong><small>${t('req_in_partners')}</small></div>`}<div class="event"><small>${t('after_meetings')}</small><strong>${t('doc_decisions')}</strong><small>${t('confirm_next')}</small></div></div>`}byId('tripOutput').innerHTML=html+`<div class="notice">${t('trip_buffer')}</div>`}
+let meetingCompany=null;let pendingMeetingId=null;
+function showMeetingModal(id){meetingCompany=id;let c=companies.find(x=>x.id===id);byId('modalCompany').textContent=c.name+' · '+c.city;byId('meetingDate').min=new Date().toISOString().slice(0,10);byId('meetingDate').value='';byId('meetingObjective').value='';byId('modalback').classList.add('show')}
+function openMeeting(id){
+ ensureCase().partnerId=id;persist();
+ const open=criticalTradeOpen();
+ if(open.length){
+  pendingMeetingId=id;
+  byId('gateTitle').textContent=t('gate_title');
+  byId('gateLead').textContent=t('gate_lead',{name:companies.find(x=>x.id===id)?.name||'',n:open.length});
+  byId('gateList').innerHTML=open.slice(0,5).map(o=>`<li><strong>${t('sev_'+o.sev)}</strong> — ${t(o.key)}</li>`).join('');
+  byId('gateFinish').textContent=t('gate_finish');
+  byId('gateAnyway').textContent=t('gate_anyway');
+  byId('gateback').classList.add('show');
+  return;
+ }
+ showMeetingModal(id);
+}
+function goCepaFromGate(){byId('gateback').classList.remove('show');if(pendingMeetingId)openCepaForPartner(pendingMeetingId);else go('trade')}
+function confirmMeetingAnyway(){byId('gateback').classList.remove('show');if(pendingMeetingId)showMeetingModal(pendingMeetingId);pendingMeetingId=null}
+byId('gateback').onclick=e=>{if(e.target===byId('gateback')){byId('gateback').classList.remove('show')}};function closeModal(){byId('modalback').classList.remove('show')}byId('modalback').onclick=e=>{if(e.target===byId('modalback'))closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();byId('gateback')?.classList.remove('show')}});function submitMeeting(){let date=byId('meetingDate').value;if(!date||date<new Date().toISOString().slice(0,10)){toast(t('toast_date'));return}let obj=byId('meetingObjective').value.trim();if(!obj){toast(t('toast_obj'));return}const openGaps=criticalTradeOpen().map(o=>o.key);state.meetings.push({id:Date.now(),companyId:meetingCompany,date,time:byId('meetingTime').value,objective:obj,status:'Requested',notes:'',caseProduct:ensureCase().product||'',cepaOpen:openGaps});ensureCase().partnerId=meetingCompany;persist();closeModal();go('meetings');toast(t('toast_meeting'))}
+function renderMeetings(){byId('meetingList').innerHTML=state.meetings.length?state.meetings.slice().sort((a,b)=>a.date.localeCompare(b.date)).map(m=>{let c=companies.find(x=>x.id===m.companyId);return `<div class="listrow"><div><strong>${safe(c?.name||'Company')}</strong><small>${safe(m.date)} at ${safe(m.time)} · ${safe(c?.city||'')}</small><div style="font-size:12px;margin-top:5px">${safe(m.objective)}</div><span class="tag amber">${m.status==='Requested'?t('status_requested'):safe(m.status)}</span>${m.notes?`<p style="font-size:12px">${t('follow_up_label')} ${safe(m.notes)}</p>`:''}${m.cepaOpen?.length?`<p style="font-size:11px;color:#a66b22;margin:6px 0 0">${t('meeting_cepa_open',{n:m.cepaOpen.length})} · <button class="btn small outline" style="margin-left:6px" onclick="openCepaForPartner(${m.companyId})">${t('case_open_cepa')}</button></p>`:''}</div><div style="display:grid;gap:7px"><button class="btn small outline" onclick="addNote(${m.id})">${t('follow_up')}</button><button class="btn small outline" onclick="deleteMeeting(${m.id})">${t('remove')}</button></div></div>`}).join(''):`<div class="empty">${t('no_meetings')}</div>`}function addNote(id){let m=state.meetings.find(x=>x.id===id);let note=prompt(t('follow_up')+':',m.notes||'');if(note!==null){m.notes=note.slice(0,2000);persist();renderMeetings();toast(t('toast_follow'))}}function deleteMeeting(id){if(confirm(t('confirm_remove'))){state.meetings=state.meetings.filter(m=>m.id!==id);persist();render()}}
+const sectorMeta={'Machinery & manufacturing':{desc:'mdesc_mach',tasks:['mtask_mach1','mtask_mach2','mtask_mach3'],bars:[72,55,82]},'Food technology':{desc:'mdesc_food',tasks:['mtask_food1','mtask_food2','mtask_food3'],bars:[65,75,61]},'Renewable energy':{desc:'mdesc_renew',tasks:['mtask_renew1','mtask_renew2','mtask_renew3'],bars:[79,48,72]},'Packaging':{desc:'mdesc_pack',tasks:['mtask_pack1','mtask_pack2','mtask_pack3'],bars:[68,67,74]}};function renderMarket(){if(!byId('sectorTitle')||!byId('marketBars'))return;let sector=byId('marketSector').value,d=sectorMeta[sector];byId('sectorTitle').textContent=sectorLabel(sector);byId('sectorText').textContent=t(d.desc);byId('sectorPriorities').innerHTML=d.tasks.map(k=>`<div class="check">✓ &nbsp; ${t(k)}</div>`).join('');byId('marketBars').innerHTML=['bar1','bar2','bar3'].map((k,i)=>`<div class="split"><span>${t(k)}</span><small class="muted">${t('illustrative')}</small></div><div class="bar"><span style="width:${d.bars[i]}%"></span></div>`).join('')}byId('marketSector').onchange=renderMarket;byId('marketDirection').onchange=()=>toast(t('toast_market'));function tradeResult(){let name=byId('productName').value.trim();if(!name){toast(t('toast_product'));return}const c=ensureCase();c.product=name;c.directionIndex=byId('tradeDirection').selectedIndex;c.started=true;persist();renderCaseBar();renderTradeCaseStrip();const toId=byId('tradeDirection').selectedIndex===0;const steps=[t('tr_step1'),t(toId?'tr_step2_gi':'tr_step2_ig'),t('tr_step3'),t(toId?'tr_step4_gi':'tr_step4_ig'),t(toId?'tr_step5_gi':'tr_step5_ig'),t('tr_step6'),t('tr_step7'),t('tr_step8')];byId('tradeResult').innerHTML=`<div class="insight"><strong>${t('research_plan')} ${safe(name)}</strong><ol class="research-steps">${steps.map(s=>`<li>${s}</li>`).join('')}</ol><small>${t('no_tariff')}</small></div>`}
+function makeTrip(){let date=byId('tripDate').value;if(!date){toast(t('toast_trip'));return}let days=Number(byId('tripDays').value),city=byId('tripCity').value;let ms=state.meetings.filter(m=>companies.find(c=>c.id===m.companyId)?.city===city);let html='';for(let i=0;i<days;i++){let d=new Date(date+'T12:00:00');d.setDate(d.getDate()+i);let day=d.toISOString().slice(0,10);let matches=ms.filter(m=>m.date===day);html+=`<h4>${t('day')} ${i+1} · ${day}</h4><div class="timeline"><div class="event"><small>09:00</small><strong>${t('review_obj')}</strong><small>${t('prepare_docs')}</small></div>${matches.map(m=>`<div class="event"><small>${safe(m.time)}</small><strong>${safe(companies.find(c=>c.id===m.companyId)?.name)}</strong><small>${t('requested_nc')} ${safe(m.objective)}</small></div>`).join('')}${matches.length?'':`<div class="event"><small>${t('to_arrange')}</small><strong>${t('partner_slots')}</strong><small>${t('req_in_partners')}</small></div>`}<div class="event"><small>${t('after_meetings')}</small><strong>${t('doc_decisions')}</strong><small>${t('confirm_next')}</small></div></div>`}const open=criticalTradeOpen().slice(0,4);const cepaBlock=open.length?`<div class="case-gap"><strong>${t('trip_cepa_title')}</strong><ul>${open.map(o=>'<li>'+t(o.key)+'</li>').join('')}</ul><button class="btn small" style="margin-top:8px" onclick="go('trade')">${t('case_open_cepa')}</button></div>`:'';byId('tripOutput').innerHTML=html+cepaBlock+`<div class="notice">${t('trip_buffer')}</div>`}
 function makePitch(){let name=byId('pitchName').value.trim(),offer=byId('pitchOffer').value.trim(),ask=byId('pitchAsk').value.trim();if(!name||!offer||!ask){toast(t('toast_pitch'));return}let outline=`${name}\n\n${t('pitch_offer')}\n${offer}\n\n${t('pitch_seek')}\n${ask}\n\n${t('pitch_attach')}\n${t('pitch_a')}\n${t('pitch_b')}\n${t('pitch_c')}\n${t('pitch_d')}`;byId('pitchOutput').innerHTML=`<div class="insight"><strong>${t('pitch_outline')}</strong><pre style="white-space:pre-wrap;font:inherit">${safe(outline)}</pre><button class="btn small outline" id="copyPitch">${t('copy_outline')}</button></div>`;byId('copyPitch').onclick=()=>{navigator.clipboard?.writeText(outline).then(()=>toast(t('toast_copied'))).catch(()=>toast(t('toast_clip')))}}
 
 // Onboarding flow / guided workspace configuration
@@ -456,6 +694,11 @@ function completeOnboarding(skipped){
  state.profile={role:d.role,goal:d.goal||'Explore opportunities',sector:d.sector||null,targetCity:d.targetCity||'all',companyName:d.companyName.trim(),homeCity:d.homeCity.trim()};
  state.onboardingComplete=true;
  state.onboardingSkipped=skipped;
+ ensureCase();
+ state.case.sector=d.sector||null;
+ state.case.targetCity=d.targetCity||'all';
+ state.case.directionIndex=d.role==='indonesian'?1:0;
+ state.case.started=true;
  persist();
  byId('role').value=state.role;
  closeOnboarding();
@@ -499,7 +742,12 @@ render=function(){
    byId('heroDesc').textContent=name+t('hero_focus',{goal:goalObj?t(goalObj.titleKey):p.goal});
  }
  byId('countProfiles').textContent=companies.filter(c=>c.country===(state.role==='indonesian'?'Germany':'Indonesia')).length;
+ renderCaseBar();
+ renderMarketCaseCta();
+ if(currentPage==='trade')renderTradeCaseStrip();
 };
 
 byId('tripDate').min=new Date().toISOString().slice(0,10);applyStaticI18n();syncOnboardingPreferences();render();if(!state.onboardingComplete)openOnboarding();
-</script></body></html>
+</script>
+<script src="workspace.js"></script>
+</body></html>
